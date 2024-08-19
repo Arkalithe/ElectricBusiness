@@ -1,0 +1,9 @@
+@for (station of chargingStations; track chargingStations) {
+  <div class="station-card">
+    <h3>{{ station.name }}</h3>
+    <p>Location: {{ station.location }}</p>
+    <p>Type: {{ station.type }}</p>
+    <p>Availability: {{ station.availability ? 'Available' : 'Not Available' }}</p>
+    <p>Price per hour: ${{ station.pricePerHour }}</p>
+  </div>
+}
