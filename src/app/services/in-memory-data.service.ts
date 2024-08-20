@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import {CHARGING_STATIONS} from "../components/mockUp/mock-charging-station-list";
+import {CHARGING_STATIONS} from "../charging-station/mockUp/mock-charging-station-list";
 import {InMemoryDbService} from "angular-in-memory-web-api";
 
 

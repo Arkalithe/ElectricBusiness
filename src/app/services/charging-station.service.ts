@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import {ChargingStation} from "../components/modele/charginStation";
-import {CHARGING_STATIONS} from "../components/mockUp/mock-charging-station-list";
+import {ChargingStation} from "../modele/charginStation";
+import {CHARGING_STATIONS} from "../charging-station/mockUp/mock-charging-station-list";
 
 @Injectable({
   providedIn: 'root'

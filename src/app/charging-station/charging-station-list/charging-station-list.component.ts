@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChargingStationService } from '../../services/charging-station.service';
-import {ChargingStation} from "../modele/charginStation";
+import {ChargingStation} from "../../modele/charginStation";
 
 @Component({
   selector: 'app-charging-station-list',

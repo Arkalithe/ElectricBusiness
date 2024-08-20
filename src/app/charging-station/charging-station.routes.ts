@@ -1,11 +1,8 @@
-import { Routes } from "@angular/router";
-import {ChargingStationService} from "../services/charging-station.service";
-
+import {Routes} from "@angular/router";
 
 export default [
   {
     path: "",
-    providers: [ChargingStationService],
     children: [
       {
         path: "stations",

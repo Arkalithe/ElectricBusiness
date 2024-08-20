@@ -1,5 +1,5 @@
-import {ChargingStation} from "../modele/charginStation";
-import {Localisation} from "../modele/localisation";
+import {ChargingStation} from "../../modele/charginStation";
+import {Localisation} from "../../modele/localisation";
 
 
 const loc1 = new Localisation("123", "Main St", 12.34);

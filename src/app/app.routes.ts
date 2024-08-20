@@ -1,3 +1,20 @@
-import { Routes } from '@angular/router';
+import {Routes} from "@angular/router";
 
-export const routes: Routes = [{ path: '', redirectTo: '/charging-stations', pathMatch: 'full' },];
+export default [
+  {
+    path: "",
+    children: [
+      {
+        path: "stations",
+        title: "Charging Stations",
+        loadChildren: () =>
+          import("./charging-station/charging-station.routes")
+      },
+      {
+        path: "home",
+        title: "Acceuil",
+        loadComponent: () => import("./home/home.component").then(module => module.HomeComponent),
+      }]
+  },
+
+] as Routes;
