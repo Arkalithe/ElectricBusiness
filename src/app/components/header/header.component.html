@@ -6,8 +6,15 @@
     <input type="text" placeholder="Search..."/>
   </div>
   <div class="header-buttons">
-    <button>Home</button>
-    <button>Profile</button>
-    <button>Logout</button>
+    <a (click)="goToHome()">
+      <button>Home</button>
+    </a>
+    <a (click)="goToStations()">
+      <button>Stations</button>
+    </a>
+    <a>
+      <button>Logout</button>
+    </a>
+
   </div>
 </header>

@@ -11,11 +11,12 @@ import {
 import {FormsModule} from "@angular/forms";
 import {BrowserModule, bootstrapApplication} from "@angular/platform-browser";
 
+
 const routes: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
   {
     path: "",
-    loadChildren: () => import("./app/app.routes")
+    loadChildren: () => import("./app/app.routes").then(module => module.default)
   },
 
   {

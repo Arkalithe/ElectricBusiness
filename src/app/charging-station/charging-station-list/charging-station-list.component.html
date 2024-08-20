@@ -1,4 +1,4 @@
-@for (station of chargingStations; track chargingStations) {
+@for (station of chargingStations; track station.uuid) {
   <div class="station-card">
     <h3>{{ station.name }}</h3>
     <p>Location: {{ station.location.streetName }}</p>

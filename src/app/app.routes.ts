@@ -1,20 +1,14 @@
 import {Routes} from "@angular/router";
+import stationRoutes from './charging-station/charging-station.routes';
 
 export default [
   {
-    path: "",
-    children: [
-      {
-        path: "stations",
-        title: "Charging Stations",
-        loadChildren: () =>
-          import("./charging-station/charging-station.routes")
-      },
-      {
-        path: "home",
-        title: "Acceuil",
-        loadComponent: () => import("./home/home.component").then(module => module.HomeComponent),
-      }]
+    path: "stations",
+    children: stationRoutes,
   },
-
+  {
+    path: "home",
+    title: "Acceuil",
+    loadComponent: () => import("./home/home.component").then(module => module.HomeComponent),
+  },
 ] as Routes;
