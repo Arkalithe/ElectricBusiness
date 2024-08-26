@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable, of} from 'rxjs';
 import {ChargingStation} from "../modele/charginStation";
-import {CHARGING_STATIONS} from "../charging-station/mockUp/mock-charging-station-list";
+import {CHARGING_STATIONS} from "../mockUp/mock-up";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChargingStationService {
 
-  constructor() { }
+  constructor() {
+  }
 
 
   getChargingStations(): Observable<ChargingStation[]> {

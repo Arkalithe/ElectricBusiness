@@ -1,0 +1,6 @@
+@for (user of users; track user.uuid) {
+  <div class="user-card">
+    <h3>{{ user.isVerified }}</h3>
+    <p>Location: {{ user.userFrom }}</p>
+  </div>
+}

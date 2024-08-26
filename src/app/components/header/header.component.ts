@@ -9,8 +9,13 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  LoggedIn: false | undefined;
 
   constructor(private route: ActivatedRoute, private router: Router) {
+  }
+
+  isLoggedIn() {
+    return this.LoggedIn;
   }
 
   goToHome() {

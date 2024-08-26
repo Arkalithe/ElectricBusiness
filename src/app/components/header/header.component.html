@@ -12,9 +12,14 @@
     <a (click)="goToStations()">
       <button>Stations</button>
     </a>
-    <a>
-      <button>Logout</button>
-    </a>
+    @if (LoggedIn) {
+      <a>
+        <button>Logout</button>
+      </a>
+    } @else {
+      <button>Login</button>
+    }
+
 
   </div>
 </header>
