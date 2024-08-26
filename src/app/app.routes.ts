@@ -2,7 +2,11 @@ import {Routes} from "@angular/router";
 import stationRoutes from './charging-station/charging-station.routes';
 import userRoutes from "./user/user-routes";
 
-export default [
+export default [{
+  path: "login",
+  title: "login",
+  loadComponent: () => import("./user/login/login.component").then((module) => module.LoginComponent),
+},
   {
     path: "stations",
     children: stationRoutes,
@@ -11,6 +15,7 @@ export default [
     path: "users",
     children: userRoutes,
   },
+
   {
     path: "home",
     title: "Acceuil",

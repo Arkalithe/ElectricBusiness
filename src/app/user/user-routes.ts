@@ -1,6 +1,7 @@
 import {Routes} from "@angular/router";
 
 export default [
+
   {
     path: "",
     title: "Liste Utilisateur",
@@ -9,4 +10,5 @@ export default [
         (module) => module.UserListComponent,
       ),
   },
+
 ] as Routes;

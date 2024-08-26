@@ -25,4 +25,8 @@ export class HeaderComponent {
   goToStations() {
     this.router.navigate(['stations']);
   }
+
+  goToLogin() {
+    this.router.navigate(['login']);
+  }
 }
