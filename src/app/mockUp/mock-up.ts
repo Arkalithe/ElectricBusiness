@@ -14,8 +14,8 @@ const loc2 = new Localisation("456", "Oak Ave", 56.78);
 const station1 = new ChargingStation("1", "Station A", loc1, "Type 2", true, 3.50, new Date());
 const station2 = new ChargingStation("2", "Station B", loc2, "CCS", false, 4.00, new Date());
 
-const user1 = new User("user1", "token123", true);
-const user2 = new User("user2", "token456", false);
+const user1 = new User("user1", "test@test.test", "test", "test", "token123", true);
+const user2 = new User("user2", "abc@abc.abc", "abc", "abc", "token456", false);
 
 const userLoc1 = new UserLocalisation(true, user1, loc1);
 const userLoc2 = new UserLocalisation(false, user2, loc2);

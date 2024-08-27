@@ -10,6 +10,7 @@ import {
 } from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule, bootstrapApplication} from "@angular/platform-browser";
+import {AuthGuard} from "./app/services/auth/auth.guard";
 
 
 const routes: Routes = [
