@@ -6,7 +6,6 @@ import {AuthGuard} from "./services/auth/auth.guard";
 export default [
   {
     path: "stations",
-    canActivate: [AuthGuard],
     children: stationRoutes,
   },
   {

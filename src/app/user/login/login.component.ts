@@ -11,7 +11,7 @@ import {AuthService} from "../../services/auth/auth.service";
   imports: [FormsModule],
 })
 export class LoginComponent {
-  message: string = "Vous êtes deconnecté. (pikachu/pikachu";
+  message: string = "Vous êtes deconnecté.";
   email: string = "";
   password: string = "";
 

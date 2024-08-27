@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,16 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  LoggedIn: false | undefined;
+  loggedIn: boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, protected authService: AuthService) {
   }
 
   isLoggedIn() {
-    return this.LoggedIn;
+    if(this.authService.isLoggedIn) {
+      this.loggedIn = true;
+    }
+    return this.loggedIn;
   }
 
   goToHome() {
