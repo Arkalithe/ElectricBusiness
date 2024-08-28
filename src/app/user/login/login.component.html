@@ -1,26 +1,26 @@
 <div class="login-content">
-  <div>
+  <div class="title-login">
     <span>Page de connexion</span>
     <p><em>{{ message }}</em></p>
   </div>
-  <form #loginForm="ngForm">
-    <div>
-      <label for="name">Email: </label>
-      <input type="text" id="name" [(ngModel)]="email" name="name" required>
+  <form #loginForm="ngForm" class="login-form-content">
+    <div class="label-input">
+      <label for="email">Email: </label>
+      <input type="text" id="email" [(ngModel)]="email" name="email" required>
     </div>
 
-    <div>
+    <div class="label-input">
       <label for="password">Password: </label>
       <input type="password" id="password" [(ngModel)]="password" name="password" required>
     </div>
     <div>
       @if (!authService.isLoggedIn) {
         <a (click)="login()" (keydown.enter)="login()">
-          <button>Se connecter</button>
+          <button class="button-login">Se connecter</button>
         </a>
       } @else {
         <a (click)="logout()">
-          <button>Se déconnecter</button>
+          <button class="button-login">Se déconnecter</button>
         </a>
       }
 

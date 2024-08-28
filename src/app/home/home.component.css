@@ -6,13 +6,11 @@
 .features {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   margin-top: 30px;
 }
 
 .feature-card-first {
   background-color: #91F387;
-  width: 100%;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 8px;
@@ -21,7 +19,6 @@
 
 .feature-card-second {
   background-color: #B9E3D4;
-  width: 100%;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
