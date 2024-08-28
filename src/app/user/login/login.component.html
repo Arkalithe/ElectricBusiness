@@ -1,24 +1,29 @@
-<div>
-  <span>Page de connexion</span>
-  <p><em>{{ message }}</em></p>
+<div class="login-content">
+  <div>
+    <span>Page de connexion</span>
+    <p><em>{{ message }}</em></p>
+  </div>
+  <form #loginForm="ngForm">
+    <div>
+      <label for="name">Email: </label>
+      <input type="text" id="name" [(ngModel)]="email" name="name" required>
+    </div>
+
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+    </div>
+    <div>
+      @if (!authService.isLoggedIn) {
+        <a (click)="login()" (keydown.enter)="login()">
+          <button>Se connecter</button>
+        </a>
+      } @else {
+        <a (click)="logout()">
+          <button>Se déconnecter</button>
+        </a>
+      }
+
+    </div>
+  </form>
 </div>
-<form #loginForm="ngForm">
-  <div>
-    <label for="name">Email: </label>
-    <input type="text" id="name" [(ngModel)]="email" name="name" required>
-  </div>
-
-  <div>
-    <label for="password">Password: </label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
-  </div>
-  <div>
-    @if (!authService.isLoggedIn) {
-      <a (click)="login()" (keydown.enter)="login()" > <button>Se connecter</button> </a>
-    } @else{
-      <a (click)="logout()">  <button>Se déconnecter</button>  </a>
-    }
-
-  </div>
-</form>
-

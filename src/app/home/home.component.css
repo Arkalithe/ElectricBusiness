@@ -35,10 +35,15 @@
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: #91F387;
+  flex: 4;
 }
 
 .feature-card-forth {
   display: flex;
+}
+
+.feature-card-fifth {
+  flex: 2;
 }
 
 .feature-card h2 {

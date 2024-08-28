@@ -7,17 +7,22 @@ import {CHARGING_STATIONS} from "../mockUp/mock-up";
   providedIn: 'root'
 })
 export class ChargingStationService {
+  private chargingStations = [...CHARGING_STATIONS];
 
   constructor() {
   }
 
 
   getChargingStations(): Observable<ChargingStation[]> {
-    return of(CHARGING_STATIONS);
+    return of(this.chargingStations);
+  }
+
+  addChargingStation(station: ChargingStation) {
+    this.chargingStations.push(station);
   }
 
   getChargingStationByUUId(uuid: string): Observable<ChargingStation | undefined> {
-    const station = CHARGING_STATIONS.find(station => station.uuid === uuid);
+    const station = this.chargingStations.find(station => station.uuid === uuid);
     return of(station);
   }
 

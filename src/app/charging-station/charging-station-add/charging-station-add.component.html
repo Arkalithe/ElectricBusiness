@@ -1,0 +1,18 @@
+<form #chargingStationForm="ngForm" class="form-station-content">
+  <label for="uuid">UUID</label>
+  <input id="uuid" type="text" [(ngModel)]="uuid">
+
+  <label for="name">Name</label>
+  <input id="name" type="text" [(ngModel)]="name" required>
+  <label for="location">Disponibilité</label>
+  <input id="location" type=checkbox [(ngModel)]="availability" required>
+  <label for="prix">Prix</label>
+  <input id="prix" type="number" [(ngModel)]="pricePerHour">
+  <label for="created">Date de création</label>
+  <input id="created" type="datetime-local" [(ngModel)]="created" required>
+  <label for="photo">Photo</label>
+  <input id="photo" type="file" [(ngModel)]="medias">
+
+
+  <button type="submit">Add Station</button>
+</form>
