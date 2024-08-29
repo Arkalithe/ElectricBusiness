@@ -3,25 +3,25 @@
     <img src="assets/logo.png" alt="Electricity Business Logo"/>
   </div>
   <div class="search-bar">
-    <input type="text" placeholder="Search..."/>
+    <input type="text" placeholder="Recherche..."/>
   </div>
   <div class="header-buttons">
     <a (click)="goToHome()">
-      <button>Home</button>
+      <button>Acceuil</button>
     </a>
     <a (click)="goToStations()">
       <button>Stations</button>
     </a>
     @if (!isLoggedIn()) {
       <a (click)="goToLogin()">
-        <button>login</button>
+        <button>Connexion</button>
       </a>
     } @else {
       <a (click)="goToStationManagement()">
         <button>Vos Stations</button>
       </a>
       <a>
-        <button>Logout</button>
+        <button>Deconnexion</button>
       </a>
     }
 

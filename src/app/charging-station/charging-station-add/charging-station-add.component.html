@@ -1,13 +1,11 @@
-<form #chargingStationForm="ngForm" class="form-station-content">
-  <label for="name">Name</label>
-  <input [(ngModel)]="name" id="name" name="name" type="text" required>
+<form [formGroup]="chargingStationForm" class="form-station-content">
+  <label for="name">Nom</label>
+  <input formControlName="name" id="name" name="name" type="text" required>
   <label for="availability">Disponibilité</label>
-  <input [(ngModel)]="availability" id="availability" name="availability" type=checkbox required>
+  <input formControlName="availability" id="availability" name="availability" type=checkbox required>
   <label for="prix">Prix</label>
-  <input [(ngModel)]="pricePerHour" id="prix" name="prix" type="number">
-  <label for="medias">Photo</label>
-  <input [(ngModel)]="medias" id="medias" name="medias" type="file">
-
-
+  <input formControlName="pricePerHour" id="prix" name="prix" type="number">
+  <label>Photo</label>
+  <app-single-file-upload (fileUploaded)="onFileUploaded($event)"></app-single-file-upload>
   <button type="submit" (click)="onSubmit()" (keydown.enter)="onSubmit()"> Add Station</button>
 </form>

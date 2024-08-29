@@ -1,0 +1,31 @@
+<h2>Telecharger un Fichier</h2>
+
+<input type="file" class="file-input" (change)="onChange($event)" #fileUpload/>
+@if (file) {
+  <section class="file-info">
+    Details du Fichier:
+    <ul>
+      <li>Nom: {{ file.name }}</li>
+      <li>Type: {{ file.type }}</li>
+      <li>Taille: {{ file.size }} bytes</li>
+    </ul>
+  </section>
+
+  <button (click)="onUpload()">Telechargement du Fichier</button>
+  <section>
+    @switch (status) {
+      @case ("telechargement") {
+        <p>⏳ En cour de Telecharghement...</p>
+      }
+      @case ('succes') {
+        <p>✅ Reussie!</p>
+      }
+      @case ("rate") {
+        <p>❌ Erreur!</p>
+      }
+      @default {
+        <p>⏳ 😶En attente de fichier...</p>
+      }
+    }
+  </section>
+}
