@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #B9E3D4;
-  color: #103281;
+  background-color: var(--main-lighter-background-color);
+  color: var(--main-text-color);
 }
 
 .footer-buttons {
@@ -17,15 +17,11 @@
 
 .footer-buttons button {
   background-color: transparent;
-  color: #103281;
+  color: var(--main-text-color);
   border: none;
   font-size: 1em;
   cursor: pointer;
   transition: color 0.3s ease;
-}
-
-.footer-buttons button:hover {
-  color: #91F387;
 }
 
 .footer-logos {

@@ -7,5 +7,6 @@
   <input formControlName="pricePerHour" id="prix" name="prix" type="number">
   <label>Photo</label>
   <app-single-file-upload (fileUploaded)="onFileUploaded($event)"></app-single-file-upload>
-  <button type="submit" (click)="onSubmit()" (keydown.enter)="onSubmit()"> Add Station</button>
+  <button type="submit" (click)="onSubmit()" (keydown.enter)="onSubmit()" class="button-add-charging"> Add Station
+  </button>
 </form>

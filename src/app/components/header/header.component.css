@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #B9E3D4;
-  color: #103281;
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
   padding: 15px 30px;
+  font-size: var(--font-size-header);
 }
 
 .logo img {
@@ -21,7 +22,8 @@
   width: 60%;
   padding: 10px;
   border-radius: 20px;
-  border: 1px solid #103281;
+  border: 1px solid var(--main-text-color);
+  font-size: var(--font-size-base);
 }
 
 .header-buttons {
@@ -31,13 +33,14 @@
 
 .header-buttons button {
   padding: 10px 20px;
-  background-color: #103281;
-  color: #ffffff;
+  background-color: var(--header-button-background-color);
+  color: var(--header-button-text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: var(--font-size-small);
 }
 
 .header-buttons button:hover {
-  background-color: #91F387;
+  cursor: pointer;
 }
