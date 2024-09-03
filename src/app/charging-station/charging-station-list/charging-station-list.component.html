@@ -1,9 +1,35 @@
-@for (station of chargingStations; track station.uuid) {
-  <div class="station-card">
-    <h3>{{ station.name }}</h3>
-    <p>Location: {{ station.location.streetName }}</p>
-    <p>Type: {{ station.type }}</p>
-    <p>Availability: {{ station.availability ? 'Disponible' : 'Pas Disponible' }}</p>
-    <p>Price per hour: ${{ station.pricePerHour }}</p>
-  </div>
-}
+<div class="container">
+  @for (station of chargingStations; track station.uuid) {
+    <div class="station-card  col-5">
+      <h3>{{ station.name }}</h3>
+      <p>Location: {{ station.location.streetName }}</p>
+      <p>Type: {{ station.type }}</p>
+      <p>Availability: {{ station.availability ? 'Disponible' : 'Pas Disponible' }}</p>
+      <p>Price per hour: ${{ station.pricePerHour }}</p>
+    </div>
+
+    <table class="station-card col-5">
+      <tr>
+        <th>name:</th>
+        <td>{{ station.name }}</td>
+      </tr>
+      <tr>
+        <th> Location:</th>
+        <td>{{ station.location.streetName }}</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>{{ station.type }}</td>
+      </tr>
+      <tr>
+        <th>Availability:</th>
+        <td>{{ station.availability ? 'Disponible' : 'Pas Disponible' }}</td>
+      </tr>
+      <tr>
+        <th>Price per hour:</th>
+        <td> {{ station.pricePerHour }}€</td>
+      </tr>
+
+    </table>
+  }
+</div>

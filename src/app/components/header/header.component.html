@@ -12,6 +12,10 @@
     <a (click)="goToStations()">
       <button>Stations</button>
     </a>
+    <a (click)="goToUsers()">
+      <button>Utilisateur</button>
+    </a>
+
     @if (!isLoggedIn()) {
       <a (click)="goToLogin()">
         <button>Connexion</button>

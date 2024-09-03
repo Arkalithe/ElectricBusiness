@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,8 @@ export class HeaderComponent {
     private route: ActivatedRoute,
     private router: Router,
     protected authService: AuthService,
-  ) {}
+  ) {
+  }
 
   isLoggedIn() {
     if (this.authService.isLoggedIn) {
@@ -27,6 +28,10 @@ export class HeaderComponent {
 
   goToHome() {
     this.router.navigate(['home']);
+  }
+
+  goToUsers() {
+    this.router.navigate(['users']);
   }
 
   goToStations() {

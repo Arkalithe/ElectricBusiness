@@ -19,7 +19,6 @@ const routes: Routes = [
     path: "",
     loadChildren: () => import("./app/app.routes").then(module => module.default)
   },
-
   {
     path: "**",
     title: "Page not Found",

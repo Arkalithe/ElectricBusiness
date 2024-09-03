@@ -6,5 +6,6 @@ export class UserLocalisation {
     public isBilling: boolean,
     public user: User,
     public localisation: Localisation
-  ) {}
+  ) {
+  }
 }

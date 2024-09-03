@@ -1,6 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
-
 :root {
   --main-background-color: #91F387;
   --main-lighter-background-color: #B9E3D4;
@@ -10,17 +7,19 @@
 
   --secondary-background-color: #0B3035;
   --secondary-button-color: #91F387;
-  --secondary-button-test-color: #0B3035;
+  --secondary-button-text-color: #333333;
+  --secondary-text-color: #91F387;
 
   --header-background-color: #B9E3D4;
   --header-button-background-color: #103281;
   --header-text-color: #103281;
-  --header-button-text-color: #B9E3D4;
+  --header-button-text-color: #91F387;
 
-  --font-size-small: 14px;
-  --font-size-base: 16px;
-  --font-size-large: 20px;
-  --font-size-header: 24px;
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-large: 1.25rem;
+  --font-size-header: 1.5rem;
+  --font-size-main-header: 2rem;
 }
 
 body {
@@ -28,7 +27,388 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-
   font-size: var(--font-size-base);
   color: var(--main-text-color);
+}
+
+.utilities {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .m-1 {
+    margin: 5px;
+  }
+
+  .m-2 {
+    margin: 10px;
+  }
+
+  .m-3 {
+    margin: 15px;
+  }
+
+  .m-4 {
+    margin: 20px;
+  }
+
+  .m-5 {
+    margin: 25px;
+  }
+
+  .mt-1 {
+    margin-top: 5px;
+  }
+
+  .mt-2 {
+    margin-top: 10px;
+  }
+
+  .mt-3 {
+    margin-top: 15px;
+  }
+
+  .mt-4 {
+    margin-top: 20px;
+  }
+
+  .mt-5 {
+    margin-top: 25px;
+  }
+
+  .mb-1 {
+    margin-bottom: 5px;
+  }
+
+  .mb-2 {
+    margin-bottom: 10px;
+  }
+
+  .mb-3 {
+    margin-bottom: 15px;
+  }
+
+  .mb-4 {
+    margin-bottom: 20px;
+  }
+
+  .mb-5 {
+    margin-bottom: 25px;
+  }
+
+  .ml-1 {
+    margin-left: 5px;
+  }
+
+  .ml-2 {
+    margin-left: 10px;
+  }
+
+  .ml-3 {
+    margin-left: 15px;
+  }
+
+  .ml-4 {
+    margin-left: 20px;
+  }
+
+  .ml-5 {
+    margin-left: 25px;
+  }
+
+  .p-1 {
+    padding: 5px;
+  }
+
+  .p-2 {
+    padding: 10px;
+  }
+
+  .p-3 {
+    padding: 15px;
+  }
+
+  .p-4 {
+    padding: 20px;
+  }
+
+  .p-5 {
+    padding: 25px;
+  }
+
+  .pt-1 {
+    padding-top: 5px;
+  }
+
+  .pt-2 {
+    padding-top: 10px;
+  }
+
+  .pt-3 {
+    padding-top: 15px;
+  }
+
+  .pt-4 {
+    padding-top: 20px;
+  }
+
+  .pt-5 {
+    padding-top: 25px;
+  }
+
+  .pb-1 {
+    padding-bottom: 5px;
+  }
+
+  .pb-2 {
+    padding-bottom: 10px;
+  }
+
+  .pb-3 {
+    padding-bottom: 15px;
+  }
+
+  .pb-4 {
+    padding-bottom: 20px;
+  }
+
+  .pb-5 {
+    padding-bottom: 25px;
+  }
+
+  .pl-1 {
+    padding-left: 5px;
+  }
+
+  .pl-2 {
+    padding-left: 10px;
+  }
+
+  .pl-3 {
+    padding-left: 15px;
+  }
+
+  .pl-4 {
+    padding-left: 20px;
+  }
+
+  .pl-5 {
+    padding-left: 25px;
+  }
+
+  .pr-1 {
+    padding-right: 5px;
+  }
+
+  .pr-2 {
+    padding-right: 10px;
+  }
+
+  .pr-3 {
+    padding-right: 15px;
+  }
+
+  .pr-4 {
+    padding-right: 20px;
+  }
+
+  .pr-5 {
+    padding-right: 25px;
+  }
+
+  [class*="col-"] {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .col-1 {
+    width: calc(100% / 12 * 1);
+  }
+
+  .col-2 {
+    width: calc(100% / 12 * 2);
+  }
+
+  .col-3 {
+    width: calc(100% / 12 * 3);
+  }
+
+  .col-4 {
+    width: calc(100% / 12 * 4);
+  }
+
+  .col-5 {
+    width: calc(100% / 12 * 5);
+  }
+
+  .col-6 {
+    width: calc(100% / 12 * 6);
+  }
+
+  .col-7 {
+    width: calc(100% / 12 * 7);
+  }
+
+  .col-8 {
+    width: calc(100% / 12 * 8);
+  }
+
+  .col-9 {
+    width: calc(100% / 12 * 9);
+  }
+
+  .col-10 {
+    width: calc(100% / 12 * 10);
+  }
+
+  .col-11 {
+    width: calc(100% / 12 * 11);
+  }
+
+  .col-12 {
+    width: calc(100% / 12 * 12);
+  }
+
+  .align-items-start {
+    align-items: flex-start;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
+
+  .align-items-end {
+    align-items: flex-end;
+  }
+
+  .justify-content-start {
+    justify-content: flex-start;
+  }
+
+  .justify-content-center {
+    justify-content: center;
+  }
+
+  .justify-content-end {
+    justify-content: flex-end;
+  }
+
+  .justify-content-between {
+    justify-content: space-between;
+  }
+
+  .justify-content-around {
+    justify-content: space-around;
+  }
+
+  .justify-content-evenly {
+    justify-content: space-evenly;
+  }
+
+  .d-none {
+    display: none !important;
+  }
+
+  .d-block {
+    display: block !important;
+  }
+
+  .g-0 {
+    gap: 0;
+  }
+
+  .g-1 {
+    gap: 0.25rem;
+  }
+
+  .g-2 {
+    gap: 0.5rem;
+  }
+
+  .g-3 {
+    gap: 1rem;
+  }
+
+  .g-4 {
+    gap: 1.5rem;
+  }
+
+  .g-5 {
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --font-size-small: 0.75rem;
+      --font-size-base: 0.875rem;
+      --font-size-large: 1rem;
+    }
+
+    .col-md-1 {
+      width: calc(100% / 6 * 1);
+    }
+
+    .col-md-2 {
+      width: calc(100% / 6 * 2);
+    }
+
+    .col-md-3 {
+      width: calc(100% / 6 * 3);
+    }
+
+    .col-md-4 {
+      width: calc(100% / 6 * 4);
+    }
+
+    .col-md-5 {
+      width: calc(100% / 6 * 5);
+    }
+
+    .col-md-6 {
+      width: calc(100% / 6 * 6);
+    }
+  }
+
+  @media (max-width: 480px) {
+    :root {
+
+      --font-size-small: 0.625rem;
+      --font-size-base: 0.75rem;
+      --font-size-large: 0.875rem;
+      --font-size-header: 1rem;
+    }
+
+    .col-sm-1 {
+      width: calc(100% / 4 * 1);
+    }
+
+    .col-sm-2 {
+      width: calc(100% / 4 * 2);
+    }
+
+    .col-sm-3 {
+      width: calc(100% / 4 * 3);
+    }
+
+    .col-sm-4 {
+      width: calc(100% / 4 * 4);
+    }
+  }
 }

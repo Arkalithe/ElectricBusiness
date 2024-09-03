@@ -1,6 +1,5 @@
 .home-container {
   text-align: center;
-  padding: 20px;
 }
 
 .features {
@@ -10,28 +9,28 @@
 }
 
 .feature-card-first {
-  background-color: #91F387;
+  background-color: var(--main-background-color);
   margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 8px;
+  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card-second {
-  background-color: #B9E3D4;
-  padding: 20px;
+  background-color: var(--main-lighter-background-color);
   margin-bottom: 20px;
-  border-radius: 8px;
+  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card-third {
-  background-color: #0B3035;
+  background-color: var(--secondary-background-color);
   border-radius: 45px;
-  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #91F387;
+  color: var(--secondary-text-color);
   flex: 4;
 }
 
@@ -43,21 +42,23 @@
   flex: 2;
 }
 
-.feature-card h2 {
-  font-size: 1.5em;
-  color: #103281;
+.title-main-home-card {
+  font-size: var(--font-size-main-header);
+  color: var(--header-text-color);
 }
 
-.feature-card p {
-  color: #333333;
+.title-home-card {
+  font-size: var(--font-size-header);
+  color: var(--secondary-text-color);
 }
+
 
 .button {
-  background-color: #91F387;
-  color: #333333;
+  background-color: var(--secondary-button-color);
+  color: var(--secondary-button-test-color);
   margin-top: 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
 }

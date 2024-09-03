@@ -7,19 +7,24 @@ import {Review} from "../modele/review";
 import {Favorite} from "../modele/favorite";
 import {Media} from "../modele/media";
 import {UserReview} from "../modele/userReview";
+import {UserStation} from "../modele/userStation";
 
 const loc1 = new Localisation("123", "Main St", 12.34);
 const loc2 = new Localisation("456", "Oak Ave", 56.78);
 
 const station1 = new ChargingStation("1", "Station A", loc1, "Type 2", true, 3.50, new Date());
 const station2 = new ChargingStation("2", "Station B", loc2, "CCS", false, 4.00, new Date());
+const station3 = new ChargingStation("3", "Station c", loc2, "Type 2", true, 5.00, new Date());
 
-const user1 = new User("user1", "test@test.test", "test", "test", "token123", true);
-const user2 = new User("user2", "abc@abc.abc", "abc", "abc", "token456", false);
+const user1 = new User("user1", "test@test.test", "test", "test", "admin", "token123", true);
+const user2 = new User("user2", "abc@abc.abc", "abc", "abc", "employee", "token456", false);
 
 const userLoc1 = new UserLocalisation(true, user1, loc1);
 const userLoc2 = new UserLocalisation(false, user2, loc2);
 
+const userStation1 = new UserStation(user1, station1);
+const userStation2 = new UserStation(user2, station2);
+const userStation3 = new UserStation(user2, station3);
 
 const booking1 = new Booking("book1", new Date(), new Date(), "completed", user1, station1);
 const booking2 = new Booking("book2", new Date(), new Date(), "in-progress", user2, station2);
@@ -45,3 +50,4 @@ export const MEDIAS: Media[] = [media1, media2];
 export const USER_REVIEWS: UserReview[] = [userReview1, userReview2];
 export const CHARGING_STATIONS: ChargingStation[] = [station1, station2];
 export const LOCALISATIONS: Localisation[] = [loc1, loc2];
+export const USER_STATION: UserStation[] = [userStation1, userStation2, userStation3];
