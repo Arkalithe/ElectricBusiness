@@ -1,6 +1,6 @@
 .station-card {
   background-color: var(--main-background-color);
-  color: #103281;
+  color: var(--main-text-color);
   border: 1px solid #ccc;
   padding: 15px;
   margin: 10px 0;
@@ -8,31 +8,26 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-.station-card table {
+.station-card-bis table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
   max-width: 100%;
 }
 
-.station-card td,
+.station-card-bis td,
 th {
   text-align: left;
   padding: 0.5em 1em;
 }
 
-.station-card
-th {
-  background-color: #555;
-  color: #fff;
-}
 
-.station-card tr:nth-child(even) {
-  background-color: var(--main-background-color);
-}
-
-.station-card tr:nth-child(odd) {
-
+.station-card-bis tr:nth-child(even) {
   background-color: var(--main-lighter-background-color);
+}
+
+.station-card-bis tr:nth-child(odd) {
+
+  background-color: var(--main-background-color);
 
 }
