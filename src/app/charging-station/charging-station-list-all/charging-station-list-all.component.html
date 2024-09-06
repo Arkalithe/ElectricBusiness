@@ -1,0 +1,16 @@
+<div class="container-center">
+  @for (station of chargingStations; track station.uuid) {
+    <div class="bg-main rounded-lg m-3 p-3 col-3 ">
+      <h3>{{ station.name }}</h3>
+      <p>Location: {{ station.location.streetName }}</p>
+      <p>Type: {{ station.type }}</p>
+      <p>Availability: {{ station.availability ? 'Disponible' : 'Pas Disponible' }}</p>
+      <p>Price per hour: ${{ station.pricePerHour }}</p>
+    </div>
+
+  }
+
+
+
+
+</div>

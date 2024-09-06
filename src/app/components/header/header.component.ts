@@ -35,9 +35,11 @@ export class HeaderComponent {
   }
 
   goToStations() {
-    this.router.navigate(['stations']);
+    this.router.navigate(['stations/historique']);
   }
-
+  goToStationsAll() {
+    this.router.navigate(['stations/all']);
+  }
   goToStationManagement() {
     this.router.navigate(['stations/add']);
   }

@@ -1,38 +1,32 @@
-.station-card {
-  background-color: var(--main-background-color);
-  color: #103281;
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+:host(app-charging-station-list) {
+  min-width: 100%;
 }
 
 .station-card table {
-  font-family: arial, sans-serif;
+  font-family: Arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  max-width: 100%;
+  table-layout: fixed;
 }
 
-.station-card td,
-th {
-  text-align: left;
-  padding: 0.5em 1em;
+.station-card th,
+.station-card td {
+  text-align: center;
+  padding: 10px;
+  width: 20%;
 }
 
-.station-card
-th {
+
+.station-card th {
   background-color: #555;
   color: #fff;
 }
 
-.station-card tr:nth-child(even) {
+
+.station-card tbody tr:nth-child(even) {
   background-color: var(--main-background-color);
 }
 
-.station-card tr:nth-child(odd) {
-
+.station-card tbody tr:nth-child(odd) {
   background-color: var(--main-lighter-background-color);
-
 }
