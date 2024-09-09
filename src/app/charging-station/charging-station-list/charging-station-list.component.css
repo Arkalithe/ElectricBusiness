@@ -1,12 +1,17 @@
 :host(app-charging-station-list) {
   min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
 }
 
 .station-card table {
-  font-family: Arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
+  box-sizing: border-box;
+
 }
 
 .station-card th,
@@ -14,19 +19,34 @@
   text-align: center;
   padding: 10px;
   width: 20%;
+  box-sizing: border-box;
+
 }
 
-
-.station-card th {
-  background-color: #555;
-  color: #fff;
+.station-card td {
+  word-wrap: break-word;
 }
 
-
-.station-card tbody tr:nth-child(even) {
+.station-card tbody tr:nth-child(even) td {
   background-color: var(--main-background-color);
 }
-
-.station-card tbody tr:nth-child(odd) {
+.station-card tbody tr:nth-child(odd) td{
   background-color: var(--main-lighter-background-color);
 }
+
+.station-card thead th:first-child {
+  border-top-left-radius: 15px;
+}
+
+.station-card thead th:last-child {
+  border-top-right-radius: 15px;
+}
+
+.station-card tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+.station-card tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
+}
+

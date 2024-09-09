@@ -5,6 +5,6 @@ export class Media {
     public uuid: string,
     public name: string,
     public extension: string,
-    public chargingStation: ChargingStation
+    public url: string,
   ) {}
 }

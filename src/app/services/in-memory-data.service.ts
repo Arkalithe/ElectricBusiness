@@ -9,8 +9,9 @@ import {
   MEDIAS,
   USER_REVIEWS,
   CHARGING_STATIONS,
-  LOCALISATIONS
+  LOCALISATIONS, PAYMENT, INVOICE, NOTIFICATIONS
 } from "../mockUp/mock-up";
+
 
 @Injectable({
   providedIn: "root",
@@ -26,6 +27,10 @@ export class InMemoryDataService implements InMemoryDbService {
     const userReviews = USER_REVIEWS;
     const chargingStations = CHARGING_STATIONS;
     const localisations = LOCALISATIONS;
+    const payment = PAYMENT;
+    const invoice = INVOICE;
+    const notification = NOTIFICATIONS;
+
 
     return {
       users,
@@ -36,7 +41,10 @@ export class InMemoryDataService implements InMemoryDbService {
       medias,
       userReviews,
       chargingStations,
-      localisations
+      localisations,
+      payment,
+      invoice,
+      notification
     };
   }
 }

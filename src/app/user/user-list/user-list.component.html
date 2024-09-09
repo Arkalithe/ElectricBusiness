@@ -1,8 +1,13 @@
 @for (user of users; track user.uuid) {
-  <div class="user-card">
-    <h3>{{ user.isVerified }}</h3>
-    <p>{{ user.name }}</p>
+  <div class="container-center bg-main border-1 border-main border-solid rounded-lg col-4">
+
+    <p>{{ user.lastname }}</p>
+    <p>{{ user.firstname }}</p>
     <p> {{ user.email }} </p>
     <p> {{ user.role }}</p>
+    <p>{{ user.Localisation }}</p>
+    <p>{{ user.activationToken }}</p>
+    <p>{{ user.isVerified }}</p>
+
   </div>
 }

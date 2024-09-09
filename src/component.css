@@ -1,0 +1,13 @@
+/*Component.css*/
+
+.button {
+  background-color: var(--secondary-button-color);
+  color: var(--secondary-button-text-color);
+  cursor: pointer;
+}
+.bg-header-button {
+  background-color: var(--header-button-background-color);
+  color: var(--header-button-text-color);
+  font-size: var(--font-size-small);
+  cursor: pointer;
+}

@@ -8,15 +8,18 @@ export class User {
   constructor(
     public uuid: string,
     public email: string,
-    public name: string,
+    public lastname: string,
+    public firstname: string,
     public password: string,
     public role: string,
+    public phoneNumber: string,
     public activationToken: string,
     public isVerified: boolean,
     public userFrom?: User[],
     public userTo?: User[],
     public reviews?: Review[],
     public bookings?: Booking[],
+    public Localisation?: Localisation[],
     public userLocalisations?: UserLocalisation[],
     public favorites?: Favorite[]
   ) {

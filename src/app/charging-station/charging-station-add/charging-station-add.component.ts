@@ -32,7 +32,7 @@ export class ChargingStationAddComponent {
     this.chargingStationForm = this.formBuilder.group({
       uuid: this.generateUUID(),
       name: '',
-      localisation: this.formBuilder.group(new Localisation('', '', 0)),
+      localisation: this.formBuilder.group(new Localisation(0, '', "","","",0,)),
       availability: true,
       pricePerHour: 0,
       created: new Date(),
