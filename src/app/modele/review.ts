@@ -1,5 +1,5 @@
-import {ChargingStation} from "./charginStation";
-import {User} from "./user";
+import { ChargingStation } from './charginStation';
+import { User } from './user';
 
 export class Review {
   constructor(
@@ -8,7 +8,7 @@ export class Review {
     public rating: number,
     public createdAt: Date,
     public user: User,
-    public chargingStation: ChargingStation
+    public slug: string,
+    public chargingStation: ChargingStation,
   ) {}
 }
-

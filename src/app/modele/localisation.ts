@@ -1,5 +1,5 @@
-import {UserLocalisation} from "./userLocalisation";
-import {ChargingStation} from "./charginStation";
+import { UserLocalisation } from './userLocalisation';
+import { ChargingStation } from './charginStation';
 
 export class Localisation {
   constructor(
@@ -9,7 +9,8 @@ export class Localisation {
     public streetName: string,
     public number: string,
     public latitude: number,
+    public slug: string,
     public chargingStations?: ChargingStation[],
-    public userLocalisations?: UserLocalisation[]
+    public userLocalisations?: UserLocalisation[],
   ) {}
 }

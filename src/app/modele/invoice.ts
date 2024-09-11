@@ -1,7 +1,6 @@
-import {Payment} from "./payment";
+import { Payment } from './payment';
 
 export class Invoice {
-
   constructor(
     public id: number,
     public issueDate: Date,
@@ -10,5 +9,6 @@ export class Invoice {
     public status: string,
     public payment: Payment,
     public createdAt: Date,
-  ) { }
+    public slug: string,
+  ) {}
 }

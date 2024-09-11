@@ -30,7 +30,8 @@
 .station-card tbody tr:nth-child(even) td {
   background-color: var(--main-background-color);
 }
-.station-card tbody tr:nth-child(odd) td{
+
+.station-card tbody tr:nth-child(odd) td {
   background-color: var(--main-lighter-background-color);
 }
 

@@ -1,4 +1,4 @@
-import {ChargingStation} from "./charginStation";
+import { ChargingStation } from './charginStation';
 
 export class Media {
   constructor(
@@ -6,5 +6,6 @@ export class Media {
     public name: string,
     public extension: string,
     public url: string,
+    public slug: string,
   ) {}
 }

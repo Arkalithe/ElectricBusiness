@@ -1,5 +1,5 @@
-import {ChargingStation} from "./charginStation";
-import {User} from "./user";
+import { ChargingStation } from './charginStation';
+import { User } from './user';
 
 export class Booking {
   constructor(
@@ -8,6 +8,7 @@ export class Booking {
     public finishedAt: Date,
     public status: string,
     public user: User,
-    public chargingStation: ChargingStation
+    public chargingStation: ChargingStation,
+    public slug: string,
   ) {}
 }

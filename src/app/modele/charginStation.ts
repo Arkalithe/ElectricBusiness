@@ -1,7 +1,7 @@
-import {Localisation} from "./localisation";
-import {Review} from "./review";
-import {Media} from "./media";
-import {Favorite} from "./favorite";
+import { Localisation } from './localisation';
+import { Review } from './review';
+import { Media } from './media';
+import { Favorite } from './favorite';
 
 export class ChargingStation {
   constructor(
@@ -12,8 +12,9 @@ export class ChargingStation {
     public availability: boolean,
     public pricePerHour: number,
     public created: Date,
+    public slug: string,
     public medias?: Media[],
     public reviews?: Review[],
-    public favorites?: Favorite[]
+    public favorites?: Favorite[],
   ) {}
 }
