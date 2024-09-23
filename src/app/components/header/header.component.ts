@@ -1,11 +1,14 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../services/auth/auth.service';
+import {SearchComponent} from "../search/search.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [
+    SearchComponent
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

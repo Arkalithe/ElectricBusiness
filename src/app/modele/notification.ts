@@ -4,6 +4,5 @@ export class Notifications {
     public title: string,
     public message: string,
     public status: string,
-    public slug: string,
   ) {}
 }

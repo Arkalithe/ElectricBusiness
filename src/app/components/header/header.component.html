@@ -1,9 +1,9 @@
-<div class="d-flex align-items-center justify-content-between bg-header text-header px-5 py-3 text-xl">
+<div class="d-flex align-items-center justify-content-between bg-header text-header px-5 py-3 text-xl a">
   <div class="logo">
     <img src="assets/logo.png" alt="Electricity Business Logo"/>
   </div>
-  <div class="search-bar flex-grow-1 mx-3 text-center">
-    <input type="text" class="w-75 p-2 rounded-lg border-main text-base" placeholder="Recherche..."/>
+  <div class=" d-flex minw-50  mx-3 text-center justify-content-center align-items-center">
+    <app-search class="minw-75"></app-search>
   </div>
   <div class="header-buttons d-flex g-2">
     <a (click)="goToHome()">

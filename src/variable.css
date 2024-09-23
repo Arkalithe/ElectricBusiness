@@ -22,12 +22,14 @@
   --font-size-header: 1.5rem;
   --font-size-main-header: 2rem;
 
+  --margin-none: 0px;
   --margin-xs: 5px;
   --margin-sm: 10px;
   --margin-md: 15px;
   --margin-lg: 20px;
   --margin-xl: 25px;
 
+  --padding-none: 0px;
   --padding-xs: 5px;
   --padding-sm: 10px;
   --padding-md: 15px;

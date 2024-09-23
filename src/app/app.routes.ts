@@ -19,6 +19,11 @@ export default [
     loadComponent: () => import("./user/login/login.component").then((module) => module.LoginComponent),
   },
   {
+    path: "register",
+    title: "register",
+    loadComponent: () => import("./user/signup/signup.component").then((module) => module.SignupComponent),
+  },
+  {
     path: "home",
     title: "Acceuil",
     loadComponent: () => import("./home/home.component").then(module => module.HomeComponent),

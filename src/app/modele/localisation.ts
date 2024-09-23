@@ -9,6 +9,7 @@ export class Localisation {
     public streetName: string,
     public number: string,
     public latitude: number,
+    public longitude: number,
     public slug: string,
     public chargingStations?: ChargingStation[],
     public userLocalisations?: UserLocalisation[],

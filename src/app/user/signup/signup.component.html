@@ -1,1 +1,18 @@
-<p>signup works!</p>
+<div class="register-form">
+  <h2>Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+
+    <button type="submit">Register</button>
+  </form>
+
+
+  @if (successMessage) {
+    <p  style="color: green;">{{ successMessage }}</p>
+  }
+  @if (errorMessage) {
+    <p style="color: red;">{{ errorMessage }}</p>
+  }
+</div>

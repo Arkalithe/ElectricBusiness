@@ -6,6 +6,5 @@ export class Media {
     public name: string,
     public extension: string,
     public url: string,
-    public slug: string,
   ) {}
 }

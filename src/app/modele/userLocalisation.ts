@@ -5,7 +5,6 @@ export class UserLocalisation {
   constructor(
     public isBilling: boolean,
     public user: User,
-    public slug: string,
     public localisation: Localisation,
   ) {}
 }

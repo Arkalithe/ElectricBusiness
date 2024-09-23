@@ -9,6 +9,5 @@ export class Invoice {
     public status: string,
     public payment: Payment,
     public createdAt: Date,
-    public slug: string,
   ) {}
 }

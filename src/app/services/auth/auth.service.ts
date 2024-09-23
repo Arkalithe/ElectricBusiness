@@ -51,6 +51,11 @@ export class AuthService {
   get currentUser(): User | null {
     return this.currentUserSubject.value;
   }
+
+  registerUser(userData: any): Observable<any> {
+    console.log('User Data Submitted: ', userData);
+    return of(true);
+  }
 }
 
 

@@ -5,6 +5,5 @@ export class UserStation {
   constructor(
     public user: User,
     public station: ChargingStation,
-    public slug: string,
   ) {}
 }

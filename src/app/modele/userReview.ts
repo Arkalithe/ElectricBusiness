@@ -7,7 +7,6 @@ export class UserReview {
     public rating: number,
     public createdAt: Date,
     public userFrom: User,
-    public slug: string,
     public userTo: User,
   ) {}
 }
