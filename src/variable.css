@@ -1,20 +1,29 @@
 /*Variable.css*/
 :root {
-  --main-background-color: #91f387;
-  --main-lighter-background-color: #B9E3D4;
-  --main-text-color: #103281;
-  --main-button-color: #103281;
-  --main-button-text-color: #B9E3D4;
+  --main-background-color: hsl(200, 100%, 90%);
+  --main-background-color-1: hsl(210, 100%, 80%);
+  --main-background-color-2: hsl(220, 100%, 70%);
+  --main-background-color-3: hsl(230, 100%, 60%);
+  --main-background-color-4: hsl(240, 100%, 50%);
 
-  --secondary-background-color: #0B3035;
+  --secondary-background-color: hsl(201, 100%, 55%);
+  --header-background-color: hsl(210, 100%, 80%);
+  --footer-background-color: hsl(240, 50%, 80%);
+  --main-lighter-background-color: hsl(319, 87%, 80%);
+
+
+  --main-button-color: hsl(319, 87%, 30%);
   --secondary-button-color: #91F387;
-  --secondary-button-text-color: #333333;
-  --secondary-text-color: #91F387;
-
-  --header-background-color: #B9E3D4;
   --header-button-background-color: #103281;
+
+  --main-text-color: hsl(227, 78%, 7%);
+  --main-button-text-color: hsl(237, 90%, 11%);
+  --secondary-text-color: #91F387;
   --header-text-color: #103281;
+  --secondary-button-text-color: #333333;
   --header-button-text-color: #91F387;
+
+  --font-bold: bold;
 
   --font-size-small: 0.875rem;
   --font-size-base: 1rem;
@@ -53,5 +62,15 @@
   --gap-md: 0.5rem;
   --gap-lg: 1rem;
   --gap-xl: 1.5rem;
+
+  --shadow:  0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+
+  --rounded: 1rem;
+  --rounded-sm: 0.50rem;
+  --rounded-md: 1.5rem;
+  --rounded-lg: 2.50rem;
+  --rounded-xl: 3.50rem;
+  --rounded-circle: 50%;
 }
 

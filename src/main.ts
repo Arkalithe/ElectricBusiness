@@ -1,43 +1,36 @@
-import {importProvidersFrom} from "@angular/core";
-import {AppComponent} from "./app/app.component";
-import {provideRouter, Routes} from "@angular/router";
-import {InMemoryDataService} from "./app/services/in-memory-data.service";
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import { importProvidersFrom } from '@angular/core';
+import { AppComponent } from './app/app.component';
+import { provideRouter, Routes } from '@angular/router';
 
 import {
   withInterceptorsFromDi,
   provideHttpClient,
-} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
-import {BrowserModule, bootstrapApplication} from "@angular/platform-browser";
-import {AuthGuard} from "./app/services/auth/auth.guard";
-
+} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { AuthGuard } from './app/services/auth/auth.guard';
 
 const routes: Routes = [
-  {path: "", redirectTo: "home", pathMatch: "full"},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: "",
-    loadChildren: () => import("./app/app.routes").then(module => module.default)
+    path: '',
+    loadChildren: () =>
+      import('./app/app.routes').then((module) => module.default),
   },
   {
-    path: "**",
-    title: "Page not Found",
-    loadComponent: () => import("./app/page-not-found/page-not-found.component").then(
-      (module) => module.PageNotFoundComponent,
-    ),
+    path: '**',
+    title: 'Page not Found',
+    loadComponent: () =>
+      import('./app/page-not-found/page-not-found.component').then(
+        (module) => module.PageNotFoundComponent,
+      ),
   },
 ];
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
-    importProvidersFrom(
-      BrowserModule,
-      FormsModule,
-      HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-        dataEncapsulation: false,
-      }),
-    ),
+    importProvidersFrom(BrowserModule, FormsModule),
 
     provideRouter(routes),
   ],

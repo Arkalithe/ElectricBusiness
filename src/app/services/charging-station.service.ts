@@ -1,30 +1,19 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {ChargingStation} from "../modele/charginStation";
-import {CHARGING_STATIONS} from "../mockUp/mock-up";
+import { Injectable } from '@angular/core';
+import { Observable, of, tap } from 'rxjs';
+import { ChargingStation } from '../modele/charginStation';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChargingStationService {
-  private chargingStations = [...CHARGING_STATIONS];
+  private apiUrl = 'http://localhost:8080/api/chargingstations';
+  private chargingStation$: Observable<ChargingStation[]> | undefined;
 
-  constructor() {
+  constructor(private http: HttpClient) {}
+
+  getChargingStationsBis(): Observable<ChargingStation[]> {
+    this.chargingStation$ = this.http.get<ChargingStation[]>(this.apiUrl);
+    return this.chargingStation$;
   }
-
-
-  getChargingStations(): Observable<ChargingStation[]> {
-    return of(this.chargingStations);
-  }
-
-  addChargingStation(station: ChargingStation) {
-    this.chargingStations.push(station);
-  }
-
-  getChargingStationByUUId(uuid: string): Observable<ChargingStation | undefined> {
-    const station = this.chargingStations.find(station => station.uuid === uuid);
-    return of(station);
-  }
-
-
 }

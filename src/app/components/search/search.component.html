@@ -1,7 +1,7 @@
-<div class="autocomplete-wrapper minw-75">
+<div class="grid-auto">
   <input
     type="text"
-    class="search-input w-100 p-2 border-main text-base"
+    class="search-input p-2 border-main grid-auto text-base"
     placeholder="Recherche..."
     [formControl]="searchControl"
     (focus)="showDropdown = true"
@@ -11,18 +11,23 @@
 
   @if (showDropdown && filteredChargingStation.length > 0) {
     <div class="autocomplete-dropdown border-solid border-2 border-main">
-      @for (chargingStation of filteredChargingStation; track chargingStation.location.id) {
+      @for (
+        chargingStation of filteredChargingStation;
+        track chargingStation.localisation.id
+      ) {
         <div
           (mousedown)="selectStation(chargingStation)"
           class="dropdown-item border-solid border-2 border-main"
         >
-          {{ chargingStation.location.streetName }}
+          {{ chargingStation.localisation.streetName }}
         </div>
       }
     </div>
   }
 
   @if (filteredChargingStation.length === 0 && searchControl.value) {
-    <div class="no-results border-solid border-2 border-main">Pas de correspondance trouvée</div>
+    <div class="no-results border-solid border-2 border-main">
+      Pas de correspondance trouvée
+    </div>
   }
 </div>

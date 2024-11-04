@@ -1,13 +1,91 @@
 /*Component.css*/
-
 .button {
   background-color: var(--secondary-button-color);
   color: var(--secondary-button-text-color);
   cursor: pointer;
 }
+
+
 .bg-header-button {
   background-color: var(--header-button-background-color);
   color: var(--header-button-text-color);
   font-size: var(--font-size-small);
   cursor: pointer;
+}
+
+
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+    inherits: false;
+
+}
+
+:root {
+  --clr-1: #052b2f;
+  --clr-2: #073438;
+  --clr-3: #0e4b50;
+  --clr-4: #2d8f85;
+  --clr-5: #637c54;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--main-background-color) 0%, var(--secondary-background-color) 100%) ;
+  color: var(--main-text-color);
+  border-radius: var(--rounded-sm);
+  padding: var(--padding-xs);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+
+.card:hover::before,
+.card:hover::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: conic-gradient(
+          from var(--gradient-angle),
+          var(--main-background-color),
+          var(--main-background-color-1),
+          var(--main-background-color-2),
+          var(--main-background-color-3),
+          var(--main-background-color-4)
+
+  );
+
+  border-radius: inherit;
+  animation: rotation 5s linear infinite;
+}
+
+.card:hover::after {
+  filter: blur(.5rem);
+}
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg}
+  100% { --gradient-angle: 360deg}
+}
+
+.card h3 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--margin-xs);
+}
+
+.card > img {
+  max-width: 90%;
+  border-radius: var(--rounded-md);
+}
+
+.card p {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--margin-xs);
+}
+
+.card p:last-child {
+  font-weight: var(--font-bold);
 }

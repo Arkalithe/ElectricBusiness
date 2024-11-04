@@ -1,21 +1,28 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit {
   registerForm!: FormGroup;
-  submitted = false;
-  successMessage = '';
-  errorMessage = '';
+  submitted: boolean = false;
+  successMessage: string = '';
+  errorMessage: string = '';
+  firstname: string  =  "";
+  lastname: string = "";
+  email: string = "";
+  password: string = "";
+  phoneNumber: string = "";
+
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {
   }

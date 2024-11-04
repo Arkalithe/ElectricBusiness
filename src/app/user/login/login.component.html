@@ -1,29 +1,29 @@
-<div class="login-content container-center col bg-main text-main p-4 m-2 shadow rounded-xl">
-  <div class="font-bold text-xl text-center">
-    <span>Page de connexion</span>
-    <p><em>{{ message }}</em></p>
-  </div>
-  <form #loginForm="ngForm" class=" container-center col">
-    <div class="mb-2 col " >
-      <label for="email">Email: </label>
-      <input type="text" id="email" [(ngModel)]="email" name="email" required>
-    </div>
+<!--<div class="login-content container-center col bg-main text-main p-4 m-2 shadow rounded-xl">-->
+<!--  <div class="font-bold text-xl text-center">-->
+<!--    <span>Page de connexion</span>-->
+<!--    <p><em>{{ message }}</em></p>-->
+<!--  </div>-->
+<!--  <form #loginForm="ngForm" class=" container-center col">-->
+<!--    <div class="mb-2 col " >-->
+<!--      <label for="email">Email: </label>-->
+<!--      <input type="text" id="email" [(ngModel)]="email" name="email" required>-->
+<!--    </div>-->
 
-    <div class="mb-2 col">
-      <label for="password">Mot de passe: </label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" required>
-    </div>
-    <div>
-      @if (!authService.isLoggedIn) {
-        <a (click)="login()" (keydown.enter)="login()">
-          <button class="bg-header-button rounded-lg py-2 px-3 border-0">Se connecter</button>
-        </a>
-      } @else {
-        <a (click)="logout()">
-          <button class="bg-header-button rounded-lg py-2 px-3 border-0">Se déconnecter</button>
-        </a>
-      }
+<!--    <div class="mb-2 col">-->
+<!--      <label for="password">Mot de passe: </label>-->
+<!--      <input type="password" id="password" [(ngModel)]="password" name="password" required>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      @if (!authService.isLoggedIn) {-->
+<!--        <a (click)="login()" (keydown.enter)="login()">-->
+<!--          <button class="bg-header-button rounded-lg py-2 px-3 border-0">Se connecter</button>-->
+<!--        </a>-->
+<!--      } @else {-->
+<!--        <a (click)="logout()">-->
+<!--          <button class="bg-header-button rounded-lg py-2 px-3 border-0">Se déconnecter</button>-->
+<!--        </a>-->
+<!--      }-->
 
-    </div>
-  </form>
-</div>
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->

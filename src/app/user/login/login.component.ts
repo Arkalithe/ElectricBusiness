@@ -31,20 +31,20 @@ export class LoginComponent {
     }
   }
 
-  login() {
-    this.message = "Tentative de connexion en cours";
-    this.authService
-      .login(this.email, this.password)
-      .subscribe((isLoggedIn: boolean) => {
-        this.setMessage();
-        if (isLoggedIn) {
-          this.router.navigate(["/home"]);
-        } else {
-          this.password = "";
-          this.router.navigate(["/login"]);
-        }
-      });
-  }
+  // login() {
+  //   this.message = "Tentative de connexion en cours";
+  //   this.authService
+  //     .login(this.email, this.password)
+  //     .subscribe((isLoggedIn: boolean) => {
+  //       this.setMessage();
+  //       if (isLoggedIn) {
+  //         this.router.navigate(["/home"]);
+  //       } else {
+  //         this.password = "";
+  //         this.router.navigate(["/login"]);
+  //       }
+  //     });
+  // }
 
   logout() {
     this.authService.logout();

@@ -1,37 +1,29 @@
-<div class="d-flex align-items-center justify-content-between bg-header text-header px-5 py-3 text-xl a">
+<div class="text-header text-xl grid-header">
   <div class="logo">
-    <img src="assets/logo.png" alt="Electricity Business Logo"/>
+    <img src="assets/logo.png" alt="Electricity Business Logo" />
   </div>
-  <div class=" d-flex minw-50  mx-3 text-center justify-content-center align-items-center">
-    <app-search class="minw-75"></app-search>
-  </div>
-  <div class="header-buttons d-flex g-2">
-    <a (click)="goToHome()">
-      <button class="bg-header-button p-3 border-5">Acceuil</button>
-    </a>
-    <a (click)="goToStations()">
-      <button class="bg-header-button p-3 border-5">Stations</button>
-    </a>
-    <a (click)="goToStationsAll()">
-      <button class="bg-header-button p-3 border-5">StationsAll</button>
-    </a>
-    <a (click)="goToUsers()">
-      <button class="bg-header-button p-3 border-5">Utilisateur</button>
-    </a>
+
+  <app-search></app-search>
+
+  <div class="">
+    <a (click)="goToHome()" class="bg-header-button p-3 rounded"> Acceuil</a>
+
+    <a (click)="goToStationsAll()" class="bg-header-button p-3 rounded"
+      >Stations</a
+    >
 
     @if (!isLoggedIn()) {
-      <a (click)="goToLogin()">
-        <button class="bg-header-button p-3 border-5">Connexion</button>
-      </a>
+      <a (click)="goToLogin()" class="bg-header-button p-3 rounded">
+        Connexion</a
+      >
     } @else {
-      <a (click)="goToStationManagement()">
-        <button class="bg-header-button p-3 border-5">Vos Stations</button>
-      </a>
-      <a>
-        <button class="bg-header-button p-3 border-5">Deconnexion</button>
-      </a>
+      <a (click)="goToStationManagement()" class="bg-header-button p-3 rounded">
+        Vos Stations</a
+      >
+
+      <a class="bg-header-button p-3 rounded">
+        <button class="bg-header-button p-3">Deconnexion</button></a
+      >
     }
-
-
   </div>
 </div>

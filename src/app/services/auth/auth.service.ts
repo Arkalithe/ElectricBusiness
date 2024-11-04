@@ -20,23 +20,23 @@ export class AuthService {
   constructor(private userService: UserService) {
   }
 
-  login(email: string, password: string): Observable<boolean> {
-    return this.userService.getUsers().pipe(
-      map(users => {
-        const user = users.find(user => user.email === email && user.password === password);
-        if (user) {
-          this.isLoggedInSubject.next(true);
-          this.roleSubject.next(user.role);
-          this.currentUserSubject.next(user);
-        } else {
-          this.isLoggedInSubject.next(false);
-          this.roleSubject.next(null);
-          this.currentUserSubject.next(null);
-        }
-        return !!user;
-      })
-    );
-  }
+  // login(email: string, password: string): Observable<boolean> {
+  //   return this.userService.getUsers().pipe(
+  //     map(users => {
+  //       const user = users.find(user => user.email === email && user.password === password);
+  //       if (user) {
+  //         this.isLoggedInSubject.next(true);
+  //         this.roleSubject.next(user.role);
+  //         this.currentUserSubject.next(user);
+  //       } else {
+  //         this.isLoggedInSubject.next(false);
+  //         this.roleSubject.next(null);
+  //         this.currentUserSubject.next(null);
+  //       }
+  //       return !!user;
+  //     })
+  //   );
+  // }
 
   logout() {
     this.isLoggedInSubject.next(false);

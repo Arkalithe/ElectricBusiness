@@ -11,10 +11,9 @@ export class ItemService {
 
   constructor(private http: HttpClient) {}
 
-
   getItems(): Observable<string[]> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
-      map(users => users.map(user => user.name))
-    );
+    return this.http
+      .get<any[]>(this.apiUrl)
+      .pipe(map((users) => users.map((user) => user.name)));
   }
 }

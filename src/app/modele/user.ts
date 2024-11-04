@@ -4,24 +4,24 @@ import { Review } from './review';
 import { Favorite } from './favorite';
 import { Localisation } from './localisation';
 
-export class User {
-  constructor(
-    public uuid: string,
-    public email: string,
-    public lastname: string,
-    public firstname: string,
-    public password: string,
-    public role: string,
-    public phoneNumber: string,
-    public activationToken: string,
-    public isVerified: boolean,
-    public slug: string,
-    public userFrom?: User[],
-    public userTo?: User[],
-    public reviews?: Review[],
-    public bookings?: Booking[],
-    public Localisation?: Localisation[],
-    public userLocalisations?: UserLocalisation[],
-    public favorites?: Favorite[],
-  ) {}
+export interface User {
+
+  uuid: string,
+  email: string,
+  lastname: string,
+  firstname: string,
+  password: string,
+  role: string,
+  phoneNumber: string,
+  activationToken: string,
+  isVerified: boolean,
+  slug: string,
+  userFrom?: User[],
+  userTo?: User[],
+  reviews?: Review[],
+  bookings?: Booking[],
+  Localisation?: Localisation[],
+  userLocalisations?: UserLocalisation[],
+  favorites?: Favorite[],
+
 }

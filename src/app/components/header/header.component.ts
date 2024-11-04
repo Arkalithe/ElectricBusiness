@@ -1,14 +1,12 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from '../../services/auth/auth.service';
-import {SearchComponent} from "../search/search.component";
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    SearchComponent
-  ],
+  imports: [SearchComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -19,8 +17,7 @@ export class HeaderComponent {
     private route: ActivatedRoute,
     private router: Router,
     protected authService: AuthService,
-  ) {
-  }
+  ) {}
 
   isLoggedIn() {
     if (this.authService.isLoggedIn) {

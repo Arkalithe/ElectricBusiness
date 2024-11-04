@@ -1,14 +1,13 @@
 import { ChargingStation } from './charginStation';
 import { User } from './user';
 
-export class Booking {
-  constructor(
-    public uuid: string,
-    public startedAt: Date,
-    public finishedAt: Date,
-    public status: string,
-    public user: User,
-    public chargingStation: ChargingStation,
-    public slug: string,
-  ) {}
+export interface Booking {
+  uuid: string,
+  startedAt: Date,
+  finishedAt: Date,
+  status: string,
+  user: User,
+  chargingStation: ChargingStation,
+  slug: string,
+
 }
