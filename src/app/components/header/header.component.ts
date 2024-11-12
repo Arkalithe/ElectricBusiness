@@ -1,26 +1,22 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { SearchComponent } from '../search/search.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'div[app-header]',
   standalone: true,
   imports: [SearchComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
   loggedIn: boolean = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    protected authService: AuthService,
-  ) {}
-
   isLoggedIn() {
-    if (this.authService.isLoggedIn) {
+    if (this.authService.isAuthenticated()) {
       this.loggedIn = true;
     }
     return this.loggedIn;
@@ -30,21 +26,19 @@ export class HeaderComponent {
     this.router.navigate(['home']);
   }
 
-  goToUsers() {
-    this.router.navigate(['users']);
+  goToStationsAll() {
+    this.router.navigate(['stations/charging-station']);
   }
 
-  goToStations() {
-    this.router.navigate(['stations/historique']);
-  }
-  goToStationsAll() {
-    this.router.navigate(['stations/all']);
-  }
-  goToStationManagement() {
-    this.router.navigate(['stations/add']);
+  goToProfile() {
+    this.router.navigate(['profile']);
   }
 
   goToLogin() {
     this.router.navigate(['login']);
+  }
+  logout() {
+    this.authService.logout();
+    this.loggedIn = false;
   }
 }

@@ -19,6 +19,7 @@
 .h-75 { height: var(--height-75); }
 .h-100 { height: var(--height-100); }
 .h-auto { height: var(--height-auto); }
+.h-fit { height: fit-content; }
 .mh-25 { max-height: var(--height-25); }
 .mh-50 { max-height: var(--height-50); }
 .mh-75 { max-height: var(--height-75); }
@@ -194,6 +195,7 @@
 .shadow-md { box-shadow: var(--shadow-md); }
 
 .overflow-hidden {overflow: hidden;}
+.overflowX-auto {overflow-x: auto;}
 .overflow-wrap {overflow-wrap: break-word;}
 .break-words {word-break: break-word;}
 

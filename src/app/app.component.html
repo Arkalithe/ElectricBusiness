@@ -1,9 +1,11 @@
-<header class="even-columns one-column bg-header">
-  <app-header class=""></app-header>
-</header>
-<main class="grid-main even-columns one-column">
-  <router-outlet />
-</main>
-<footer class="grid-main bg-footer">
-  <app-footer class="even-columns one-column"></app-footer>
-</footer>
+<div class="grid-main">
+  <header class="grid-auto bg-header">
+    <div app-header class="text-header text-xl grid-header"></div>
+  </header>
+  <main class="grid-main even-columns one-column">
+    <router-outlet />
+  </main>
+  <footer class="grid-main bg-footer">
+    <div app-footer class="even-columns one-column"></div>
+  </footer>
+</div>

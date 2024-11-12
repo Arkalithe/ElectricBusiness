@@ -1,27 +1,28 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {User} from "../modele/user";
-// import {LOCALISATIONS, USERS} from "../mockUp/mock-up";
-import {Localisation} from "../modele/localisation";
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { UserModele } from '../modele/user.modele';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  private readonly http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/api/users';
+  // private user$: Observable<UserModele[]> | undefined;
 
-  constructor(private http: HttpClient) {
+  getUsers(userDetails: {
+    email: string;
+    password: string;
+  }): Observable<UserModele[]> {
+    return this.http.post<any>(this.apiUrl, userDetails);
   }
-  //
-  // getUsers(): Observable<User[]> {
-  //   return of(USERS);
-  // }
-  //
-  // getUserLocalisations(): Localisation[] {
+
+  // getUserLocalisations(): LocalisationModele[] {
   //   return LOCALISATIONS;
   // }
   //
-  // getUserByUuid(uuid: string): Observable<User | undefined> {
+  // getUserByUuid(uuid: string): Observable<UserModele | undefined> {
   //
   //   const user = USERS.find(u => u.uuid === uuid);
   //   return of(user);

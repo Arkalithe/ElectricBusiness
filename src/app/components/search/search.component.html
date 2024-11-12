@@ -1,33 +1,30 @@
-<div class="grid-auto">
-  <input
-    type="text"
-    class="search-input p-2 border-main grid-auto text-base"
-    placeholder="Recherche..."
-    [formControl]="searchControl"
-    (focus)="showDropdown = true"
-    (blur)="hideDropdown()"
-    (keydown)="handleKeydown($event)"
-  />
+<input
+  type="text"
+  class="search-input p-2 border-main text-base"
+  placeholder="Recherche..."
+  [formControl]="searchControl"
+  (focus)="showDropdown = true"
+  (blur)="hideDropdown()"
+  (keydown)="handleKeydown($event)"
+/>
 
-  @if (showDropdown && filteredChargingStation.length > 0) {
-    <div class="autocomplete-dropdown border-solid border-2 border-main">
-      @for (
-        chargingStation of filteredChargingStation;
-        track chargingStation.localisation.id
-      ) {
-        <div
-          (mousedown)="selectStation(chargingStation)"
-          class="dropdown-item border-solid border-2 border-main"
-        >
-          {{ chargingStation.localisation.streetName }}
-        </div>
-      }
-    </div>
-  }
-
-  @if (filteredChargingStation.length === 0 && searchControl.value) {
-    <div class="no-results border-solid border-2 border-main">
-      Pas de correspondance trouvée
-    </div>
-  }
-</div>
+@if (showDropdown && filteredChargingStation.length > 0) {
+  <div class="autocomplete-dropdown border-solid border-2 border-main">
+    @for (
+      chargingStation of filteredChargingStation;
+      track chargingStation.localisation.id
+    ) {
+      <div
+        (mousedown)="selectStation(chargingStation)"
+        class="dropdown-item border-solid border-2 border-main"
+      >
+        {{ chargingStation.localisation.streetName }}
+      </div>
+    }
+  </div>
+}
+@if (filteredChargingStation.length === 0 && searchControl.value) {
+  <div class="no-results border-solid border-2 border-main">
+    Pas de correspondance trouvée
+  </div>
+}

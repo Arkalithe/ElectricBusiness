@@ -1,6 +1,6 @@
-import {User} from "./user";
+import { UserModele } from './user.modele';
 
-export interface Localisation {
+export interface LocalisationModele {
   id: number;
   streetNumber: string;
   streetName: string;
@@ -8,5 +8,5 @@ export interface Localisation {
   longitude: string;
   zipCode: string;
   city: string;
-  owner: User;
+  owner: UserModele;
 }

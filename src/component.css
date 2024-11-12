@@ -13,13 +13,10 @@
   cursor: pointer;
 }
 
-
-
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
     inherits: false;
-
 }
 
 :root {
@@ -40,7 +37,6 @@
   text-align: center;
   position: relative;
 }
-
 
 .card:hover::before,
 .card:hover::after {

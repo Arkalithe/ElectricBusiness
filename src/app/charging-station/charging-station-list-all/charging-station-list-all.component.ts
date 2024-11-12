@@ -1,6 +1,6 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { ChargingStation } from '../../modele/charginStation';
-import { AuthService } from '../../services/auth/auth.service';
+import { Component, HostBinding, inject, OnInit } from '@angular/core';
+import { ChargingStation } from '../../modele/charginStation.modele';
+// import { AuthService } from '../../services/auth.service';
 import { ChargingStationService } from '../../services/charging-station.service';
 
 import { CommonModule } from '@angular/common';
@@ -15,16 +15,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './charging-station-list-all.component.css',
 })
 export class ChargingStationListAllComponent implements OnInit {
-  chargingStations: ChargingStation[] = [];
   @HostBinding('class.grid-auto') autoGridClass = true;
-
-  constructor(
-    private authService: AuthService,
-    private chargingStationService: ChargingStationService,
-  ) {}
+  chargingStations: ChargingStation[] = [];
+  private readonly chargingStationService = inject(ChargingStationService);
+  // private readonly authService = inject(AuthService) ;
 
   ngOnInit(): void {
-    this.chargingStationService.getChargingStationsBis().subscribe({
+    this.chargingStationService.getChargingStations().subscribe({
       next: (data: ChargingStation[]) => {
         this.chargingStations = data;
         console.log('Données assignées au composant:', this.chargingStations);

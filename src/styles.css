@@ -1,7 +1,6 @@
     /*style.css*/
     @import 'main.css';
     @import 'variable.css';
-    @import "flex.css";
     @import "grid.css";
     @import "utilities.css";
     @import "component.css";

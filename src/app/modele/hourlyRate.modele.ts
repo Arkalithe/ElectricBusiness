@@ -1,4 +1,4 @@
-export interface HourlyRate {
+export interface HourlyRateModele {
   value: number;
   minimumDuration: number;
 }

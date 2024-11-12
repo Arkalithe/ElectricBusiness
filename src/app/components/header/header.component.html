@@ -1,29 +1,21 @@
-<div class="text-header text-xl grid-header">
-  <div class="logo">
-    <img src="assets/logo.png" alt="Electricity Business Logo" />
-  </div>
+<div class="logo">
+  <img src="assets/logo.png" alt="Electricity Business Logo" />
+</div>
 
-  <app-search></app-search>
+<div app-search></div>
 
-  <div class="">
-    <a (click)="goToHome()" class="bg-header-button p-3 rounded"> Acceuil</a>
+<div class="h-100">
+  <a (click)="goToHome()" class="bg-header-button p-3 rounded"> Acceuil</a>
 
-    <a (click)="goToStationsAll()" class="bg-header-button p-3 rounded"
-      >Stations</a
-    >
+  <a (click)="goToStationsAll()" class="bg-header-button p-3 rounded"
+    >Stations</a
+  >
 
-    @if (!isLoggedIn()) {
-      <a (click)="goToLogin()" class="bg-header-button p-3 rounded">
-        Connexion</a
-      >
-    } @else {
-      <a (click)="goToStationManagement()" class="bg-header-button p-3 rounded">
-        Vos Stations</a
-      >
+  @if (!isLoggedIn()) {
+    <a (click)="goToLogin()" class="bg-header-button p-3 rounded"> Connexion</a>
+  } @else {
+    <a (click)="goToProfile()" class="bg-header-button p-3 rounded"> Profile</a>
 
-      <a class="bg-header-button p-3 rounded">
-        <button class="bg-header-button p-3">Deconnexion</button></a
-      >
-    }
-  </div>
+    <a class="bg-header-button p-3 rounded" (click)="logout()"> Deconnexion </a>
+  }
 </div>

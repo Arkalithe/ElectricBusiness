@@ -1,53 +1,60 @@
-import {Component, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
-import {FormsModule} from "@angular/forms";
-import {AuthService} from "../../services/auth/auth.service";
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
+  selector: 'app-login',
+  templateUrl: './login.component.html',
   styleUrl: `./login.component.css`,
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
 })
-export class LoginComponent {
-  message: string = "Vous êtes deconnecté.";
-  email: string = "";
-  password: string = "";
+export class LoginComponent implements OnInit {
+  private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly formBuilder = inject(FormBuilder);
+  errorMessage = '';
+  form: FormGroup;
 
-
-  constructor(
-    protected authService: AuthService,
-    private router: Router,
-  ) {
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
+          ),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          // Validators.pattern(
+          //   '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$',
+          // ),
+        ],
+      ],
+    });
   }
 
-
-  setMessage() {
-    if (this.authService.isLoggedIn) {
-      this.message = "Vous êtes connecter.";
-    } else {
-      this.message = "Identifiant ou mot de passe incorrecte.";
+  login(): void {
+    if (this.form.valid) {
+      const { email, password } = this.form.value;
+      this.authService.login(email, password).subscribe({
+        next: () => this.router.navigate(['/']),
+        error: () => {
+          this.errorMessage = 'Invalid credentials';
+        },
+      });
     }
-  }
-
-  // login() {
-  //   this.message = "Tentative de connexion en cours";
-  //   this.authService
-  //     .login(this.email, this.password)
-  //     .subscribe((isLoggedIn: boolean) => {
-  //       this.setMessage();
-  //       if (isLoggedIn) {
-  //         this.router.navigate(["/home"]);
-  //       } else {
-  //         this.password = "";
-  //         this.router.navigate(["/login"]);
-  //       }
-  //     });
-  // }
-
-  logout() {
-    this.authService.logout();
-    this.message = "Vous êtes deconnecté.";
   }
 }

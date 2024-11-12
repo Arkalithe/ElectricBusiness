@@ -1,33 +1,30 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, inject, OnInit } from '@angular/core';
 import { ChargingStationService } from '../../services/charging-station.service';
-import { ChargingStation } from '../../modele/charginStation';
+import { ChargingStation } from '../../modele/charginStation.modele';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-search',
+  selector: 'div[app-search]',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
 })
 export class SearchComponent implements OnInit {
+  @HostBinding('class.text-center') textCenter = true;
+  private chargingStationService = inject(ChargingStationService);
+  private readonly router = inject(Router);
   searchControl = new FormControl('');
   allChargingStation: ChargingStation[] = [];
   filteredChargingStation: ChargingStation[] = [];
   showDropdown = false;
-  @HostBinding('class.grid-main') autoGridClass = true;
-
-  constructor(
-    private chargingStationService: ChargingStationService,
-    private router: Router,
-  ) {}
 
   ngOnInit(): void {
     this.chargingStationService
-      .getChargingStationsBis()
+      .getChargingStations()
       .subscribe((chargingStations) => {
         this.allChargingStation = chargingStations;
 

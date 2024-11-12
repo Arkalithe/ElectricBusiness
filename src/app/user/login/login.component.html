@@ -1,29 +1,27 @@
-<!--<div class="login-content container-center col bg-main text-main p-4 m-2 shadow rounded-xl">-->
-<!--  <div class="font-bold text-xl text-center">-->
-<!--    <span>Page de connexion</span>-->
-<!--    <p><em>{{ message }}</em></p>-->
-<!--  </div>-->
-<!--  <form #loginForm="ngForm" class=" container-center col">-->
-<!--    <div class="mb-2 col " >-->
-<!--      <label for="email">Email: </label>-->
-<!--      <input type="text" id="email" [(ngModel)]="email" name="email" required>-->
-<!--    </div>-->
+<form [formGroup]="form" (ngSubmit)="login()" class="container-center col">
+  <div class="mb-2 col">
+    <label for="email">Email: </label>
+    <input type="text" id="email" formControlName="email" required />
+    @if (form.controls["email"].invalid && form.controls["email"]) {
+      <div class="error">Email is required and must be valid.</div>
+    }
+  </div>
 
-<!--    <div class="mb-2 col">-->
-<!--      <label for="password">Mot de passe: </label>-->
-<!--      <input type="password" id="password" [(ngModel)]="password" name="password" required>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      @if (!authService.isLoggedIn) {-->
-<!--        <a (click)="login()" (keydown.enter)="login()">-->
-<!--          <button class="bg-header-button rounded-lg py-2 px-3 border-0">Se connecter</button>-->
-<!--        </a>-->
-<!--      } @else {-->
-<!--        <a (click)="logout()">-->
-<!--          <button class="bg-header-button rounded-lg py-2 px-3 border-0">Se déconnecter</button>-->
-<!--        </a>-->
-<!--      }-->
+  <div class="mb-2 col">
+    <label for="password">Mot de passe: </label>
+    <input type="password" id="password" formControlName="password" required />
+    @if (form.controls["password"].invalid && form.controls["password"]) {
+      <div class="error">Password is required.</div>
+    }
+  </div>
 
-<!--    </div>-->
-<!--  </form>-->
-<!--</div>-->
+  <div>
+    <button
+      type="submit"
+      class="bg-header-button rounded-lg py-2 px-3 border-0"
+      [disabled]="form.invalid"
+    >
+      Se connecter
+    </button>
+  </div>
+</form>

@@ -10,7 +10,7 @@ main {
     height: fit-content;
 }
 
-body {
+body > * {
     min-height: 100vh;
     height: 100%;
     > * {
