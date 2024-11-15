@@ -6,6 +6,7 @@ import {
   HttpEvent,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -13,7 +14,9 @@ export class JwtInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
+    const token =
+      localStorage.getItem(environment.LOCALISATION_KEYS.TOKEN) ||
+      sessionStorage.getItem(environment.LOCALISATION_KEYS.TOKEN);
     if (token) {
       request = request.clone({
         setHeaders: {

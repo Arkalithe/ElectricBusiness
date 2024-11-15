@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="login()" class="login text-center">
+  <div class="mb-2">
+    <label for="email">Email: </label>
+    <input type="text" id="email" formControlName="email" required />
+  </div>
+
+  <div class="mb-2">
+    <label for="password">Mot de passe: </label>
+    <input type="password" id="password" formControlName="password" required />
+  </div>
+
+  <div class="mb-2">
+    <label for="keepConnected">
+      <input
+        type="checkbox"
+        id="keepConnected"
+        formControlName="keepConnected"
+      />
+      Rester connecté
+    </label>
+  </div>
+  <button type="submit" class="bg-header-button rounded-lg py-2 px-3 border-0">
+    Se connecter
+  </button>
+</form>

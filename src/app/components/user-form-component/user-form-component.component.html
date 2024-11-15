@@ -1,0 +1,84 @@
+<div *ngIf="userForm" class="user-form">
+  <h2>{{ isUpdateMode ? "Mise à jour" : "Inscription" }}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstname">Nom: </label>
+      <input
+        type="text"
+        id="firstname"
+        formControlName="firstname"
+        name="firstname"
+        required
+      />
+    </div>
+    <div>
+      <label for="lastname">Prenom: </label>
+      <input
+        type="text"
+        id="lastname"
+        formControlName="lastname"
+        name="lastname"
+        required
+      />
+    </div>
+    <div>
+      <label for="email">Email: </label>
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        name="email"
+        required
+      />
+    </div>
+
+    <div *ngIf="!isUpdateMode">
+      <label for="password">Mot de passe: </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        name="password"
+        required
+      />
+    </div>
+    <div *ngIf="userForm.get('password').invalid && userForm.get('password')">
+      <small *ngIf="userForm.get('password').errors['required']">
+        Le mot de passe est obligatoire.
+      </small>
+      <small *ngIf="userForm.get('password').errors['pattern']">
+        Le mot de passe doit contenir au moins 8 caractères, une lettre
+        majuscule, une lettre minuscule, un chiffre et un caractère spécial.
+      </small>
+    </div>
+    <div>
+      <label for="phone">Telephone: </label>
+      <input
+        type="text"
+        id="phone"
+        formControlName="phone"
+        name="phone"
+        required
+      />
+    </div>
+    <div>
+      <label for="birthedAt">Date de Naissance: </label>
+      <input
+        type="date"
+        id="birthedAt"
+        formControlName="birthedAt"
+        name="birthedAt"
+        required
+      />
+    </div>
+    <div>
+      <button type="submit">
+        {{ isUpdateMode ? "Mettre à jour" : "S'inscrire" }}
+      </button>
+      <button type="button" (click)="onCancel()">Annuler</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="!userForm">
+  <p>Loading form...</p>
+</div>

@@ -17,8 +17,6 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {

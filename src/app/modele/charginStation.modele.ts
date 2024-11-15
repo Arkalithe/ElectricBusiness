@@ -4,9 +4,10 @@ import { PowerModele } from './power.modele';
 import { HourlyRateModele } from './hourlyRate.modele';
 
 export interface ChargingStation {
-  uuid: string;
+  id: string;
   name: string;
-  hourlyRate: number;
+  hourlyRate?: number;
+  baseHourlyRate?: number;
   accessDirectives: string;
   onFoot: boolean;
   createdAt: Date;

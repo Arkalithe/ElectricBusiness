@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostBinding, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
@@ -17,6 +17,7 @@ import { AuthService } from '../../services/auth.service';
   imports: [FormsModule, ReactiveFormsModule],
 })
 export class LoginComponent implements OnInit {
+  @HostBinding('class.grid-auto') autoGrid = true;
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
@@ -34,27 +35,22 @@ export class LoginComponent implements OnInit {
           ),
         ],
       ],
-      password: [
-        '',
-        [
-          Validators.required,
-          // Validators.pattern(
-          //   '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$',
-          // ),
-        ],
-      ],
+      password: ['', [Validators.required]],
+      keepConnected: [false],
     });
   }
 
   login(): void {
     if (this.form.valid) {
-      const { email, password } = this.form.value;
-      this.authService.login(email, password).subscribe({
+      const { email, password, keepConnected } = this.form.value;
+      this.authService.login(email, password, keepConnected).subscribe({
         next: () => this.router.navigate(['/']),
         error: () => {
           this.errorMessage = 'Invalid credentials';
         },
       });
+    } else {
+      this.errorMessage = 'Credentials Incorrect';
     }
   }
 }

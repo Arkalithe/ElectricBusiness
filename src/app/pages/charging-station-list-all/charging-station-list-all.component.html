@@ -1,0 +1,29 @@
+@for (station of chargingStations; track station.id) {
+  <a
+    [routerLink]="['/stations', 'details', station.id]"
+    class="card grid-auto-row"
+    tabindex="0"
+  >
+    <h3>Nom de la station: {{ station.name }}</h3>
+    <div class="m-auto h-100">
+      <img
+        class="m-auto image-container"
+        alt="bornes"
+        ngSrc="{{ station.mediaList[0].path }}.{{
+          station.mediaList[0].extension
+        }}"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div>
+      <p>
+        Location: {{ station.localisation.city }},
+        {{ station.localisation.zipCode }}
+      </p>
+      <p>Directive: {{ station.accessDirectives }}</p>
+      <p>Availability: {{ station.onFoot ? "Sur Pied" : "Muralle " }}</p>
+      <p>Price per hour: {{ station.baseHourlyRate }}€</p>
+    </div>
+  </a>
+}

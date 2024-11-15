@@ -1,0 +1,5 @@
+.login {
+    border-radius: var(--rounded-lg);
+    border: 1px solid;
+    width: var(--width-50);
+}

@@ -11,6 +11,10 @@
   color: var(--header-button-text-color);
   font-size: var(--font-size-small);
   cursor: pointer;
+  margin-right: var(--gap-md)
+}
+.bg-header-button:last-child {
+  margin-right: 0;
 }
 
 @property --gradient-angle {
@@ -72,9 +76,13 @@
   margin-bottom: var(--margin-xs);
 }
 
-.card > img {
-  max-width: 90%;
+.card > div > img {
+  max-width: 100%;
+  min-height: auto;
+  aspect-ratio: 2/3;
   border-radius: var(--rounded-md);
+  object-fit: fill;
+  display: block;
 }
 
 .card p {

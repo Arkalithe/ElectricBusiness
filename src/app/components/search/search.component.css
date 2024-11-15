@@ -1,31 +1,23 @@
-
-.autocomplete-wrapper {
-  position: relative;
-}
-
-.autocomplete-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: white;
-}
-
 .dropdown-item {
   padding: 10px;
   cursor: pointer;
+  border: 1px solid var(--header-button-background-color);
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+background-color: #f1f1f1;
+}
+
+.wrapper-search {
+  left: 25%;
+  width: 50%;
 }
 
 .search-input {
-  width: 50%;
+  text-align: center;
+  width: 100%;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .no-results {
@@ -34,7 +26,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  max-height: 200px;
   overflow-y: auto;
   background-color: white;
 }
+

@@ -142,7 +142,9 @@
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
-
+.text-decoration-none {
+    text-decoration: none;
+}
 
 .border-0 { border-width: 0; }
 .border-1 { border-width: 1em; }
@@ -199,8 +201,11 @@
 .overflow-wrap {overflow-wrap: break-word;}
 .break-words {word-break: break-word;}
 
-.text-decoration-none {
-    text-decoration: none;
+.absolute {
+    position: absolute;
+}
+.relative {
+position: relative;
 }
 
 .list-style-none {

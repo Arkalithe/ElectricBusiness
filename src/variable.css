@@ -1,5 +1,6 @@
 /*Variable.css*/
 :root {
+  /*color variable*/
   --main-background-color: hsl(200, 100%, 90%);
   --main-background-color-1: hsl(210, 100%, 80%);
   --main-background-color-2: hsl(220, 100%, 70%);
@@ -25,25 +26,36 @@
 
   --font-bold: bold;
 
-  --font-size-small: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-large: 1.25rem;
-  --font-size-header: 1.5rem;
-  --font-size-main-header: 2rem;
+  /*size variable */
+  --base-font-size: 1rem;
+  --base-gap: 1rem;
+  --base-padding: 10px;
+  --base-margin: 10px;
 
-  --margin-none: 0px;
-  --margin-xs: 5px;
-  --margin-sm: 10px;
-  --margin-md: 15px;
-  --margin-lg: 20px;
-  --margin-xl: 25px;
+  --font-size-small: calc(var(--base-font-size) * 0.875);
+  --font-size-base: var(--base-font-size);
+  --font-size-large: calc(var(--base-font-size) * 1.25);
+  --font-size-header: calc(var(--base-font-size) * 1.5);
+  --font-size-main-header: calc(var(--base-font-size) * 2);
 
-  --padding-none: 0px;
-  --padding-xs: 5px;
-  --padding-sm: 10px;
-  --padding-md: 15px;
-  --padding-lg: 20px;
-  --padding-xl: 25px;
+  --margin-none: 0;
+  --margin-xs: calc(var(--base-margin) * 0.5);
+  --margin-sm: var(--base-margin);
+  --margin-md: calc(var(--base-margin) * 1.5);
+  --margin-lg: calc(var(--base-margin) * 2);
+
+  --padding-none: 0;
+  --padding-xs: calc(var(--base-padding) * 0.5);
+  --padding-sm: var(--base-padding);
+  --padding-md: calc(var(--base-padding) * 1.5);
+  --padding-lg: calc(var(--base-padding) * 2);
+
+  --gap-xs: calc(var(--base-gap) * 0.25);
+  --gap-sm: calc(var(--base-gap) * 0.5);
+  --gap-md: calc(var(--base-gap) * 1);
+  --gap-lg: calc(var(--base-gap) * 1.5);
+  --gap-xl: calc(var(--base-gap) * 2);
+
 
   --width-25: 25%;
   --width-50: 50%;
@@ -56,12 +68,6 @@
   --height-75: 75%;
   --height-100: 100%;
   --height-auto: auto;
-
-  --gap-xs: 0;
-  --gap-sm: 0.25rem;
-  --gap-md: 0.5rem;
-  --gap-lg: 1rem;
-  --gap-xl: 1.5rem;
 
   --shadow:  0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);

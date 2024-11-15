@@ -29,7 +29,6 @@ export class ProfileHistoryComponent implements OnInit {
       .getChargingStationsByOwner(page, this.pageSize)
       .subscribe({
         next: (data: Page<ChargingStation>) => {
-          console.log('Data received:', data);
           this.chargingStations = data.content;
           this.totalPages = data.totalPages;
           this.totalElements = data.totalElements;
@@ -46,5 +45,9 @@ export class ProfileHistoryComponent implements OnInit {
       this.currentPage = newPage;
       this.loadChargingStationsOwner(newPage);
     }
+  }
+
+  trackById(index: number, station: ChargingStation): string {
+    return station.id;
   }
 }

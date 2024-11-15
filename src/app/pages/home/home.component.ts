@@ -8,5 +8,5 @@ import { Component, HostBinding } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  @HostBinding('class.grid-auto') soloGrid = true;
+  @HostBinding('class.grid-auto') autoGrid = true;
 }

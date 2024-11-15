@@ -1,15 +1,13 @@
 import { Component, HostBinding, inject, OnInit } from '@angular/core';
 import { ChargingStation } from '../../modele/charginStation.modele';
-// import { AuthService } from '../../services/auth.service';
 import { ChargingStationService } from '../../services/charging-station.service';
-
-import { CommonModule } from '@angular/common';
-// import {error} from "@angular/compiler-cli/src/transformers/util";
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-charging-station-list-all',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, NgOptimizedImage],
   providers: [ChargingStationService],
   templateUrl: './charging-station-list-all.component.html',
   styleUrl: './charging-station-list-all.component.css',
@@ -18,20 +16,15 @@ export class ChargingStationListAllComponent implements OnInit {
   @HostBinding('class.grid-auto') autoGridClass = true;
   chargingStations: ChargingStation[] = [];
   private readonly chargingStationService = inject(ChargingStationService);
-  // private readonly authService = inject(AuthService) ;
 
   ngOnInit(): void {
     this.chargingStationService.getChargingStations().subscribe({
       next: (data: ChargingStation[]) => {
         this.chargingStations = data;
-        console.log('Données assignées au composant:', this.chargingStations);
+        console.log(this.chargingStations);
       },
-      error: (error) => {
-        console.error('Erreur lors de la récupération des données:', error);
-      },
-      complete: () => {
-        console.log('Récupération des données terminée');
-      },
+      error: (error) => {},
+      complete: () => {},
     });
   }
 }

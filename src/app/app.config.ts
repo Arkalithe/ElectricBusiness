@@ -3,7 +3,7 @@ import {
   importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import {
   provideHttpClient,
   withInterceptorsFromDi,
@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(BrowserModule, FormsModule),
-    provideRouter(appRoutes),
+    provideRouter(appRoutes, withComponentInputBinding()),
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     provideZoneChangeDetection({ eventCoalescing: true }),
   ],

@@ -5,16 +5,17 @@
 <div app-search></div>
 
 <div class="h-100">
-  <a (click)="goToHome()" class="bg-header-button p-3 rounded"> Acceuil</a>
+  <a routerLink="/" class="bg-header-button p-3 rounded"> Acceuil</a>
 
-  <a (click)="goToStationsAll()" class="bg-header-button p-3 rounded"
-    >Stations</a
-  >
+  <a routerLink="/stations" class="bg-header-button p-3 rounded">Stations</a>
 
   @if (!isLoggedIn()) {
-    <a (click)="goToLogin()" class="bg-header-button p-3 rounded"> Connexion</a>
+    <a routerLink="/register" class="bg-header-button p-3 rounded">
+      Inscription
+    </a>
+    <a routerLink="/login" class="bg-header-button p-3 rounded"> Connexion</a>
   } @else {
-    <a (click)="goToProfile()" class="bg-header-button p-3 rounded"> Profile</a>
+    <a routerLink="/profile" class="bg-header-button p-3 rounded"> Profile</a>
 
     <a class="bg-header-button p-3 rounded" (click)="logout()"> Deconnexion </a>
   }

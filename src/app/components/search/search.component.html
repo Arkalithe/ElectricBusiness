@@ -1,30 +1,32 @@
-<input
-  type="text"
-  class="search-input p-2 border-main text-base"
-  placeholder="Recherche..."
-  [formControl]="searchControl"
-  (focus)="showDropdown = true"
-  (blur)="hideDropdown()"
-  (keydown)="handleKeydown($event)"
-/>
+<div class="relative wrapper-search">
+  <input
+    type="text"
+    class="p-2 search-input border-main"
+    placeholder="Search by city or street name..."
+    [formControl]="searchControl"
+    (focus)="showDropdown = true"
+    (blur)="hideDropdown()"
+    (keydown)="handleKeydown($event)"
+  />
 
-@if (showDropdown && filteredChargingStation.length > 0) {
-  <div class="autocomplete-dropdown border-solid border-2 border-main">
-    @for (
-      chargingStation of filteredChargingStation;
-      track chargingStation.localisation.id
-    ) {
-      <div
-        (mousedown)="selectStation(chargingStation)"
-        class="dropdown-item border-solid border-2 border-main"
-      >
-        {{ chargingStation.localisation.streetName }}
-      </div>
-    }
+  <div
+    class="no-results"
+    *ngIf="showDropdown && filteredChargingStation.length > 0"
+  >
+    <div
+      *ngFor="let station of filteredChargingStation; trackBy: trackById"
+      (mousedown)="selectStation(station)"
+      class="dropdown-item"
+    >
+      {{ station.localisation.city }}, {{ station.localisation.streetNumber }},
+      {{ station.localisation.streetName }}
+    </div>
   </div>
-}
-@if (filteredChargingStation.length === 0 && searchControl.value) {
-  <div class="no-results border-solid border-2 border-main">
-    Pas de correspondance trouvée
+
+  <div
+    *ngIf="filteredChargingStation.length === 0 && searchControl.value"
+    class="no-results"
+  >
+    No matches found
   </div>
-}
+</div>

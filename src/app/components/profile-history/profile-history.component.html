@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let station of chargingStations">
+      <tr *ngFor="let station of chargingStations; trackBy: trackById">
         <td>{{ station.name }}</td>
         <td>{{ station.hourlyRate | currency }}</td>
         <td>{{ station.accessDirectives }}</td>
