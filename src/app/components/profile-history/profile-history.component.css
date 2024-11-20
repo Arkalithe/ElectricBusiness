@@ -22,3 +22,41 @@ tbody tr:nth-child(odd) {
 tbody tr:nth-child(even) {
     background-color: hsl(220, 100%, 75%);
 }
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal button:first-child {
+    background-color: #d9534f;
+    color: white;
+}
+
+.modal button:last-child {
+    background-color: #5bc0de;
+    color: white;
+}

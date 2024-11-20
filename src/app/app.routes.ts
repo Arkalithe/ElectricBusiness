@@ -1,8 +1,36 @@
 import { Routes } from '@angular/router';
 import { noAuthGuard } from './guards/noAuth/no-auth.guard';
 import { authGuard } from './guards/auth/auth.guard';
+import { ChargingStationDetailsComponent } from './pages/charging-station-details/charging-station-details.component';
 
 export default [
+  {
+    path: 'profile',
+    title: 'Profile',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./pages/profile/profile.component').then(
+        (module) => module.ProfileComponent,
+      ),
+    children: [
+      {
+        path: 'history',
+        title: 'Charging Station History',
+        loadComponent: () =>
+          import('./components/profile-history/profile-history.component').then(
+            (module) => module.ProfileHistoryComponent,
+          ),
+      },
+      {
+        path: 'update-user/:id',
+        title: 'User Update',
+        loadComponent: () =>
+          import('./components/user-update/user-update.component').then(
+            (module) => module.UserUpdateComponent,
+          ),
+      },
+    ],
+  },
   {
     path: 'stations/details/:id',
     title: 'Charging Stations Details',
@@ -12,12 +40,20 @@ export default [
       ).then((module) => module.ChargingStationDetailsComponent),
   },
   {
-    path: 'update-user/:id',
-    title: 'User Update',
+    path: 'stations/update/:id',
+    title: 'Charging Stations Update',
     loadComponent: () =>
-      import('./components/user-update/user-update.component').then(
-        (module) => module.UserUpdateComponent,
-      ),
+      import(
+        './pages/charging-station-update/charging-station-update.component'
+      ).then((module) => module.ChargingStationUpdateComponent),
+  },
+  {
+    path: 'stations/create',
+    title: 'Charging Stations Create',
+    loadComponent: () =>
+      import(
+        './pages/charging-station-create/charging-station-create.component'
+      ).then((module) => module.ChargingStationCreateComponent),
   },
   {
     path: 'login',
@@ -35,15 +71,6 @@ export default [
       import(
         './pages/charging-station-list-all/charging-station-list-all.component'
       ).then((module) => module.ChargingStationListAllComponent),
-  },
-  {
-    path: 'profile',
-    title: 'Profile',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./components/profile-history/profile-history.component').then(
-        (module) => module.ProfileHistoryComponent,
-      ),
   },
   {
     path: 'register',

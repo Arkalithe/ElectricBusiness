@@ -1,0 +1,7 @@
+<app-charging-station-form
+  [isUpdateMode]="true"
+  [stationData]="stationData"
+  (submitForm)="handleSubmit($event)"
+  (cancel)="handleCancel()"
+  (imageDeleted)="handleImageDelete($event)"
+></app-charging-station-form>

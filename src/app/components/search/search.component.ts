@@ -1,5 +1,5 @@
 import { Component, HostBinding, inject, OnInit } from '@angular/core';
-import { ChargingStationService } from '../../services/charging-station.service';
+import { ChargingStationService } from '../../services/charging-station/charging-station.service';
 import { ChargingStation } from '../../modele/charginStation.modele';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';

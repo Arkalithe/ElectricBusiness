@@ -1,15 +1,14 @@
 <div class="overflowX-auto">
-  <h3 class="text-center">Charging Station History</h3>
-  <table class="">
+  <h3 class="text-center">Vos Station</h3>
+  <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Hourly Rate</th>
-        <th>Access Directives</th>
-        <th>On Foot</th>
-        <th>Created At</th>
-        <th>Location</th>
-        <th>Power Value</th>
+        <th>Nom</th>
+        <th>Tarif</th>
+        <th>Info Direction</th>
+        <th>Sur pied</th>
+        <th>Localisation</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -18,12 +17,13 @@
         <td>{{ station.hourlyRate | currency }}</td>
         <td>{{ station.accessDirectives }}</td>
         <td>{{ station.onFoot ? "Oui" : "Non" }}</td>
-        <td>{{ station.createdAt | date: "short" }}</td>
         <td>
           {{ station.city }} {{ station.zipCode }}
           {{ station.streetName }}
         </td>
-        <td>{{ station.value }}</td>
+        <td>
+          <button (click)="confirmDelete(station)">Supprimer</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -42,5 +42,17 @@
     >
       Next
     </button>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <h3>Confirmation</h3>
+    <p>
+      Êtes-vous sûr de vouloir supprimer la station
+      <strong>{{ stationToDelete?.name }}</strong> ?
+    </p>
+    <button (click)="deleteStation()">Oui</button>
+    <button (click)="closeModal()">Non</button>
   </div>
 </div>

@@ -9,8 +9,10 @@
       <img
         class="m-auto image-container"
         alt="bornes"
-        ngSrc="{{ station.mediaList[0].path }}.{{
-          station.mediaList[0].extension
+        ngSrc="{{
+          station.mediaList?.length
+            ? station.mediaList[0].path + '.' + station.mediaList[0].extension
+            : 'assets/images/no-image-found.png'
         }}"
         width="300"
         height="200"

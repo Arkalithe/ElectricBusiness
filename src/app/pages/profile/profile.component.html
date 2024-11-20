@@ -1,0 +1,28 @@
+<div class="profile-page">
+  <nav class="tab-nav">
+    <button
+      class="tab-button"
+      [class.active]="activeTab === 'history'"
+      (click)="switchTab('history')"
+    >
+      Vos Station Electrique
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeTab === 'update'"
+      (click)="switchTab('update')"
+    >
+      Modifier Profile
+    </button>
+  </nav>
+
+  <div class="tab-content">
+    <div *ngIf="activeTab === 'history'">
+      <div app-profile-history></div>
+    </div>
+
+    <div *ngIf="activeTab === 'update'">
+      <app-user-update [id]="id"></app-user-update>
+    </div>
+  </div>
+</div>

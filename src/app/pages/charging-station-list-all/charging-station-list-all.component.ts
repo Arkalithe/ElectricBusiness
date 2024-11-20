@@ -1,6 +1,6 @@
 import { Component, HostBinding, inject, OnInit } from '@angular/core';
 import { ChargingStation } from '../../modele/charginStation.modele';
-import { ChargingStationService } from '../../services/charging-station.service';
+import { ChargingStationService } from '../../services/charging-station/charging-station.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

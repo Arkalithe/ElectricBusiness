@@ -1,7 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { ChargingStation } from '../../modele/charginStation.modele';
-import { ChargingStationService } from '../../services/charging-station.service';
-import { error } from '@angular/compiler-cli/src/transformers/util';
+import { ChargingStationService } from '../../services/charging-station/charging-station.service';
 
 @Component({
   selector: 'app-charging-station-details',

@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserModele } from '../../modele/user.modele';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { UserFormComponentComponent } from '../../components/user-form-component/user-form-component.component';
 // import { AuthService } from '../../services/auth.service';

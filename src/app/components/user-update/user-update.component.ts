@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import {
   FormControl,
   FormGroup,
@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserModele } from '../../modele/user.modele';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
 import { UserFormComponentComponent } from '../user-form-component/user-form-component.component';
 
 @Component({

@@ -23,3 +23,8 @@ export interface ChargingStation {
   mediaList: MediaModele[];
   hourlyRates: HourlyRateModele[];
 }
+
+export interface ChargingStationFormSubmit {
+  data: ChargingStation;
+  files: File[];
+}
