@@ -1,0 +1,10 @@
+.step-indicator span {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.step-indicator span.active {
+    background-color: #007bff;
+    color: #fff;
+}

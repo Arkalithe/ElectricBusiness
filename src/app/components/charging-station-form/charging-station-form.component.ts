@@ -20,7 +20,7 @@ import {
 import { PowerModele } from '../../modele/power.modele';
 
 @Component({
-  selector: 'app-charging-station-form',
+  selector: 'div[app-charging-station-form]',
   standalone: true,
   imports: [NgIf, NgForOf, ReactiveFormsModule],
   templateUrl: './charging-station-form.component.html',
@@ -106,21 +106,21 @@ export class ChargingStationFormComponent implements OnInit {
   //                             }),
   toggleLocalisationEntry(): void {
     this.addNewLocalisation = !this.addNewLocalisation;
+    const localisationGroup = this.fb.group({
+      streetNumber: ['', Validators.required],
+      streetName: ['', Validators.required],
+      latitude: ['', Validators.required],
+      longitude: ['', Validators.required],
+      zipCode: ['', Validators.required],
+      city: ['', Validators.required],
+    });
+
     if (this.addNewLocalisation) {
-      this.stationForm.addControl(
-        'localisation',
-        this.fb.group({
-          streetNumber: ['', Validators.required],
-          streetName: ['', Validators.required],
-          latitude: ['', Validators.required],
-          longitude: ['', Validators.required],
-          zipCode: ['', Validators.required],
-          city: ['', Validators.required],
-        }),
-      );
+      this.stationForm.addControl('localisation', localisationGroup);
       this.stationForm.get('localisationId')?.disable();
     } else {
       this.stationForm.get('localisationId')?.enable();
+      this.stationForm.removeControl('localisation');
     }
   }
 
@@ -159,5 +159,11 @@ export class ChargingStationFormComponent implements OnInit {
       { id: 2, value: 20 },
       { id: 3, value: 50 },
     ];
+  }
+
+  currentStep = 1;
+
+  goToStep(step: number): void {
+    this.currentStep = step;
   }
 }

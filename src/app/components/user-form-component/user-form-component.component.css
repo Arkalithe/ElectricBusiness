@@ -1,0 +1,5 @@
+.user-form {
+    padding: var(--padding-lg);
+    background: var(--main-background-color);
+    box-shadow: var(--shadow-md);
+}

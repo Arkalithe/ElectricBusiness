@@ -1,99 +1,139 @@
-<form [formGroup]="stationForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Nom</label>
-    <input id="name" formControlName="name" />
-  </div>
-
-  <div>
-    <label for="hourlyRate">Tarif horaire</label>
-    <input id="hourlyRate" type="number" formControlName="hourlyRate" />
-  </div>
-
-  <div>
-    <label for="accessDirectives">Directives d'accès</label>
-    <textarea
-      id="accessDirectives"
-      formControlName="accessDirectives"
-    ></textarea>
-  </div>
-
-  <div>
-    <label for="onFoot">Sur pied</label>
-    <input id="onFoot" type="checkbox" formControlName="onFoot" />
-  </div>
-
-  <div *ngIf="isUpdateMode">
-    <h4>Images existantes</h4>
-    <div *ngFor="let media of stationData?.mediaList">
-      <img [src]="media.url" alt="Media" width="100" />
-      <button type="button" (click)="deleteImage(media.id)">Supprimer</button>
+<form [formGroup]="stationForm" (ngSubmit)="onSubmit()" class="grid-auto-row">
+  @if (currentStep === 1) {
+    <div>
+      <label for="name">Nom</label>
+      <input id="name" formControlName="name" />
+      <span
+        *ngIf="
+          stationForm.get('name').hasError('required') &&
+          stationForm.get('name').touched
+        "
+      >
+        Nom invalide
+      </span>
     </div>
-  </div>
 
-  <div>
-    <label for="mediaFiles">Ajouter des fichiers</label>
-    <input
-      id="mediaFiles"
-      type="file"
-      (change)="onFileSelected($event)"
-      multiple
-    />
-  </div>
+    <div>
+      <label for="hourlyRate">Tarif horaire</label>
+      <input id="hourlyRate" type="number" formControlName="hourlyRate" />
+    </div>
 
-  <div>
-    <button type="button" (click)="toggleLocalisationEntry()">
-      {{
-        addNewLocalisation
-          ? "Utiliser une localisation existante"
-          : "Ajouter une nouvelle localisation"
-      }}
+    <div>
+      <label for="accessDirectives">Directives d'accès</label>
+      <textarea
+        id="accessDirectives"
+        formControlName="accessDirectives"
+      ></textarea>
+    </div>
+
+    <div>
+      <label for="onFoot">Sur pied</label>
+      <input id="onFoot" type="checkbox" formControlName="onFoot" />
+    </div>
+
+    <button type="button" (click)="goToStep(2)">Next</button>
+  }
+
+  @if (currentStep === 2) {
+    <div *ngIf="isUpdateMode">
+      <h4>Images existantes</h4>
+      <div *ngFor="let media of stationData?.mediaList">
+        <img [src]="media.url" alt="Media" width="100" />
+        <button type="button" (click)="deleteImage(media.id)">Supprimer</button>
+      </div>
+    </div>
+
+    <div>
+      <label for="mediaFiles">Ajouter des fichiers</label>
+      <input
+        id="mediaFiles"
+        type="file"
+        (change)="onFileSelected($event)"
+        multiple
+      />
+    </div>
+
+    <div>
+      <button type="button" (click)="toggleLocalisationEntry()">
+        {{
+          addNewLocalisation
+            ? "Utiliser une localisation existante"
+            : "Ajouter une nouvelle localisation"
+        }}
+      </button>
+    </div>
+
+    <div *ngIf="!addNewLocalisation">
+      <label for="localisationId">Localisation existante</label>
+      <input
+        id="localisationId"
+        type="number"
+        formControlName="localisationId"
+      />
+    </div>
+
+    <fieldset formGroupName="localisation" *ngIf="addNewLocalisation">
+      <legend>Nouvelle localisation</legend>
+      <div>
+        <label for="streetNumber">Numéro de rue</label>
+        <input id="streetNumber" formControlName="streetNumber" />
+      </div>
+      <div>
+        <label for="streetName">Nom de rue</label>
+        <input id="streetName" formControlName="streetName" />
+      </div>
+      <div>
+        <label for="latitude">Latitude</label>
+        <input id="latitude" formControlName="latitude" />
+      </div>
+      <div>
+        <label for="longitude">Longitude</label>
+        <input id="longitude" formControlName="longitude" />
+      </div>
+      <div>
+        <label for="zipCode">Code postal</label>
+        <input id="zipCode" formControlName="zipCode" />
+      </div>
+      <div>
+        <label for="city">Ville</label>
+        <input id="city" formControlName="city" />
+      </div>
+    </fieldset>
+    <div>
+      <button type="button" (click)="goToStep(1)">Back</button>
+      <button type="button" (click)="goToStep(3)">Next</button>
+    </div>
+  }
+
+  @if (currentStep === 3) {
+    <div>
+      <label for="powerId">Puissance</label>
+      <select id="powerId" formControlName="powerId">
+        <option *ngFor="let power of powerOptions" [value]="power.id">
+          {{ power.value }} kW
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="stationForm.invalid">
+      {{ isUpdateMode ? "Mettre à jour" : "Créer" }}
     </button>
-  </div>
-
-  <div *ngIf="!addNewLocalisation">
-    <label for="localisationId">Localisation existante</label>
-    <input id="localisationId" type="number" formControlName="localisationId" />
-  </div>
-
-  <fieldset formGroupName="localisation" *ngIf="addNewLocalisation">
-    <legend>Nouvelle localisation</legend>
     <div>
-      <label for="streetNumber">Numéro de rue</label>
-      <input id="streetNumber" formControlName="streetNumber" />
+      <button type="button" (click)="onCancel()">Annuler</button>
+      <button type="button" (click)="goToStep(2)">Back</button>
     </div>
-    <div>
-      <label for="streetName">Nom de rue</label>
-      <input id="streetName" formControlName="streetName" />
-    </div>
-    <div>
-      <label for="latitude">Latitude</label>
-      <input id="latitude" formControlName="latitude" />
-    </div>
-    <div>
-      <label for="longitude">Longitude</label>
-      <input id="longitude" formControlName="longitude" />
-    </div>
-    <div>
-      <label for="zipCode">Code postal</label>
-      <input id="zipCode" formControlName="zipCode" />
-    </div>
-    <div>
-      <label for="city">Ville</label>
-      <input id="city" formControlName="city" />
-    </div>
-  </fieldset>
-
-  <div>
-    <label for="powerId">Puissance</label>
-    <select id="powerId" formControlName="powerId">
-      <option *ngFor="let power of powerOptions" [value]="power.id">
-        {{ power.value }} kW
-      </option>
-    </select>
-  </div>
-
-  <button type="submit" [disabled]="stationForm.invalid">
-    {{ isUpdateMode ? "Mettre à jour" : "Créer" }}
-  </button>
-  <button type="button" (click)="onCancel()">Annuler</button>
+  }
 </form>
+<!--<div>-->
+<!--  <div>-->
+<!--    <button type="button" (click)="goToStep(1)">Back</button>-->
+<!--    <button type="button" (click)="goToStep(3)">Next</button>-->
+<!--    <button type="button" (click)="onCancel()">Annuler</button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="step-indicator grid-header">
+  <span [class.active]="currentStep === 1">Step 1</span>
+  <span [class.active]="currentStep === 2">Step 2</span>
+  <span [class.active]="currentStep === 3">Step 3</span>
+</div>

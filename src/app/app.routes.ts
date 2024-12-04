@@ -17,9 +17,9 @@ export default [
         path: 'history',
         title: 'Charging Station History',
         loadComponent: () =>
-          import('./components/profile-history/profile-history.component').then(
-            (module) => module.ProfileHistoryComponent,
-          ),
+          import(
+            './components/charging-station-owner-list/charging-station-owner-list'
+          ).then((module) => module.ChargingStationOwnerList),
       },
       {
         path: 'update-user/:id',
@@ -42,6 +42,7 @@ export default [
   {
     path: 'stations/update/:id',
     title: 'Charging Stations Update',
+    canActivate: [authGuard],
     loadComponent: () =>
       import(
         './pages/charging-station-update/charging-station-update.component'
@@ -50,6 +51,7 @@ export default [
   {
     path: 'stations/create',
     title: 'Charging Stations Create',
+    canActivate: [authGuard],
     loadComponent: () =>
       import(
         './pages/charging-station-create/charging-station-create.component'

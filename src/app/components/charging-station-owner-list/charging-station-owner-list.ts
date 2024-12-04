@@ -3,23 +3,25 @@ import { ChargingStation } from '../../modele/charginStation.modele';
 import { ChargingStationService } from '../../services/charging-station/charging-station.service';
 import { CurrencyPipe, NgForOf, NgIf } from '@angular/common';
 import { Page } from '../../modele/page.modele';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'div[app-profile-history]',
+  selector: 'div[app-charging-station-owner-list]',
   standalone: true,
   imports: [CurrencyPipe, NgForOf, NgIf],
-  templateUrl: './profile-history.component.html',
-  styleUrl: './profile-history.component.css',
+  templateUrl: './charging-station-owner-list.html',
+  styleUrl: './charging-station-owner-list.css',
 })
-export class ProfileHistoryComponent implements OnInit {
+export class ChargingStationOwnerList implements OnInit {
   chargingStations: ChargingStation[] = [];
   currentPage = 0;
-  pageSize = 5;
+  pageSize = 10;
   totalPages = 0;
   totalElements = 0;
   showModal = false;
   stationToDelete: ChargingStation | null = null;
   private readonly chargingStationService = inject(ChargingStationService);
+  private readonly router = inject(Router);
   @HostBinding('class.grid-auto') gridAuto = true;
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class ProfileHistoryComponent implements OnInit {
       .getChargingStationsByOwner(page, this.pageSize)
       .subscribe({
         next: (data: Page<ChargingStation>) => {
+          console.log(data);
           this.chargingStations = data.content;
           this.totalPages = data.totalPages;
           this.totalElements = data.totalElements;
@@ -67,14 +70,18 @@ export class ProfileHistoryComponent implements OnInit {
             this.chargingStations = this.chargingStations.filter(
               (station) => station.id !== this.stationToDelete?.id,
             );
-            this.showModal = false; // Close the modal
-            this.stationToDelete = null; // Reset
+            this.showModal = false;
+            this.stationToDelete = null;
           },
           error: (err) => {
             console.error('Error deleting charging station:', err);
           },
         });
     }
+  }
+
+  goToDetails(stationId: string): void {
+    this.router.navigate([`/stations/details/${stationId}`]);
   }
 
   closeModal(): void {

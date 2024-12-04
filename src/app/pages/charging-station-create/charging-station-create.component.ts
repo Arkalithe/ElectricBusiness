@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostBinding, inject } from '@angular/core';
 import { ChargingStationService } from '../../services/charging-station/charging-station.service';
 import { ChargingStationFormSubmit } from '../../modele/charginStation.modele';
 import { ChargingStationFormComponent } from '../../components/charging-station-form/charging-station-form.component';
@@ -12,7 +12,7 @@ import { ChargingStationFormComponent } from '../../components/charging-station-
 })
 export class ChargingStationCreateComponent {
   private readonly chargingStationService = inject(ChargingStationService);
-
+  @HostBinding('class.grid-s8-w1') grid = true;
   handleSubmit(event: ChargingStationFormSubmit): void {
     const { data, files } = event;
 

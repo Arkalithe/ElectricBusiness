@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostBinding, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -10,7 +10,6 @@ import { UserModele } from '../../modele/user.modele';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { UserFormComponentComponent } from '../../components/user-form-component/user-form-component.component';
-// import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,6 +21,7 @@ import { UserFormComponentComponent } from '../../components/user-form-component
 export class SignupComponent {
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
+  @HostBinding('class.grid-s8-w1') grid = true;
 
   onRegister(user: UserModele): void {
     console.log('register' + user);

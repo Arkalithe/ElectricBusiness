@@ -4,7 +4,6 @@
 .w-75 { width: var(--width-75); }
 .w-100 { width: var(--width-100); }
 .w-auto { width: var(--width-auto); }
-
 .maxw-25 { max-width: var(--width-25); }
 .maxw-50 { max-width: var(--width-50); }
 .maxw-75 { max-width:var(--width-75); }

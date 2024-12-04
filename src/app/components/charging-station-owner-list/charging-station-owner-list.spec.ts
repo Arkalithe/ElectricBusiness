@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileHistoryComponent } from './profile-history.component';
+import { ChargingStationOwnerList } from './charging-station-owner-list';
 
 describe('ProfileHistoryComponent', () => {
-  let component: ProfileHistoryComponent;
-  let fixture: ComponentFixture<ProfileHistoryComponent>;
+  let component: ChargingStationOwnerList;
+  let fixture: ComponentFixture<ChargingStationOwnerList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProfileHistoryComponent]
-    })
-    .compileComponents();
+      imports: [ChargingStationOwnerList],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(ProfileHistoryComponent);
+    fixture = TestBed.createComponent(ChargingStationOwnerList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

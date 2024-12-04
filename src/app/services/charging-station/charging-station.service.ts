@@ -39,6 +39,7 @@ export class ChargingStationService {
 
   getChargingStationBySearch(query: string): Observable<ChargingStation[]> {
     let params = new HttpParams().set('query', query);
+
     return this.http.get<ChargingStation[]>(this.apiSearch, { params });
   }
 

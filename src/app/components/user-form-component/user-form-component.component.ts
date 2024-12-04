@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostBinding,
   Input,
   OnChanges,
   OnInit,
@@ -17,7 +18,7 @@ import {
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-user-form-component',
+  selector: 'div[app-user-form-component]',
   standalone: true,
   imports: [ReactiveFormsModule, NgIf],
   templateUrl: './user-form-component.component.html',
@@ -28,8 +29,8 @@ export class UserFormComponentComponent implements OnInit, OnChanges {
   @Input() isUpdateMode: boolean = false;
   @Output() submitForm = new EventEmitter<UserModele>();
   @Output() cancel = new EventEmitter<void>();
-
-  userForm: FormGroup;
+  @HostBinding('class.grid-auto-row') gridAuto = true;
+  public userForm: FormGroup;
 
   private initializeForm(): void {
     this.userForm = new FormGroup(

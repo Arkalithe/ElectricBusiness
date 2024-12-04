@@ -1,5 +1,5 @@
-<div *ngIf="userForm" class="user-form">
-  <h2>{{ isUpdateMode ? "Mise à jour" : "Inscription" }}</h2>
+<div *ngIf="userForm" class="user-form text-center">
+  <h2>{{ isUpdateMode ? "Mise à jour du profile" : "Inscription" }}</h2>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="firstname">Nom: </label>
@@ -42,7 +42,11 @@
         required
       />
     </div>
-    <div *ngIf="userForm.get('password').invalid && userForm.get('password')">
+    <div
+      *ngIf="
+        userForm.get('password').touched && userForm.get('password').invalid
+      "
+    >
       <small *ngIf="userForm.get('password').errors['required']">
         Le mot de passe est obligatoire.
       </small>
@@ -51,6 +55,7 @@
         majuscule, une lettre minuscule, un chiffre et un caractère spécial.
       </small>
     </div>
+
     <div>
       <label for="phone">Telephone: </label>
       <input
