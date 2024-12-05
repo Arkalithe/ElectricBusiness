@@ -1,5 +1,5 @@
 export const environment = {
-  API_URL: 'http://localhost:8080/api',
+  API_URL: 'https://electric-business-a977082804f7.herokuapp.com/api',
   LOCALISATION_KEYS: {
     TOKEN: 'token',
   },
