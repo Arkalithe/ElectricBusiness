@@ -21,7 +21,8 @@ import { UserFormComponentComponent } from '../../components/user-form-component
 export class SignupComponent {
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
-  @HostBinding('class.grid-s8-w1') grid = true;
+  @HostBinding('class.grid-auto-row') grid = true;
+  @HostBinding('class.even-columns') gridEven = true;
 
   onRegister(user: UserModele): void {
     console.log('register' + user);

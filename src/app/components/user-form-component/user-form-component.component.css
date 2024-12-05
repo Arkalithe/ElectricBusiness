@@ -1,5 +1,15 @@
-.user-form {
-    padding: var(--padding-lg);
-    background: var(--main-background-color);
-    box-shadow: var(--shadow-md);
+form > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 300px;
+}
+
+.error {
+    color: red;
+    font-size: var(--font-size-small);
+    justify-self: center;
+    line-height: 1rem;
 }

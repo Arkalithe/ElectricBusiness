@@ -1,14 +1,14 @@
 import { Component, HostBinding, inject, OnInit } from '@angular/core';
 import { ChargingStation } from '../../modele/charginStation.modele';
 import { ChargingStationService } from '../../services/charging-station/charging-station.service';
-import { CurrencyPipe, NgForOf, NgIf } from '@angular/common';
+import { CurrencyPipe, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { Page } from '../../modele/page.modele';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'div[app-charging-station-owner-list]',
   standalone: true,
-  imports: [CurrencyPipe, NgForOf, NgIf],
+  imports: [CurrencyPipe, NgForOf, NgIf, NgOptimizedImage, RouterLink],
   templateUrl: './charging-station-owner-list.html',
   styleUrl: './charging-station-owner-list.css',
 })

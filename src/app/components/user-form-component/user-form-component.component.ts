@@ -29,7 +29,6 @@ export class UserFormComponentComponent implements OnInit, OnChanges {
   @Input() isUpdateMode: boolean = false;
   @Output() submitForm = new EventEmitter<UserModele>();
   @Output() cancel = new EventEmitter<void>();
-  @HostBinding('class.grid-auto-row') gridAuto = true;
   public userForm: FormGroup;
 
   private initializeForm(): void {

@@ -1,59 +1,88 @@
-<div class="overflowX-auto">
-  <h3 class="text-center">Vos Station</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Tarif</th>
-        <th>Info Direction</th>
-        <th>Sur pied</th>
-        <th>Localisation</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let station of chargingStations; trackBy: trackById">
-        <td>{{ station.name }}</td>
-        <td>{{ station.hourlyRate | currency }}</td>
-        <td>{{ station.accessDirectives }}</td>
-        <td>{{ station.onFoot ? "Oui" : "Non" }}</td>
-        <td>
-          {{ station.city }} {{ station.zipCode }}
-          {{ station.streetName }}
-        </td>
-        <td>
-          <button (click)="confirmDelete(station)">Supprimer</button>
-          <button (click)="goToDetails(station.id)">Details</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="pagination-controls text-center">
-    <button
-      (click)="onPageChange(currentPage - 1)"
-      [disabled]="currentPage === 0"
-    >
-      Previous
-    </button>
-    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
-    <button
-      (click)="onPageChange(currentPage + 1)"
-      [disabled]="currentPage + 1 >= totalPages"
-    >
-      Next
-    </button>
+@for (station of chargingStations; track station.id) {
+<a
+  [routerLink]="['/stations', 'details', station.id]"
+  class="card grid-auto-row"
+  tabindex="0"
+>
+  <h3>Nom de la station: {{ station.name }}</h3>
+  <div class="m-auto h-100">
+    <img
+      class="m-auto image-container"
+      alt="bornes"
+      ngSrc="{{
+          station.mediaList?.length
+            ? station.mediaList[0].url
+            : 'assets/images/no-image-found.png'
+        }}"
+      width="300"
+      height="200"
+    />
   </div>
-</div>
-
-<div class="modal-backdrop" *ngIf="showModal">
-  <div class="modal">
-    <h3>Confirmation</h3>
-    <p>
-      Êtes-vous sûr de vouloir supprimer la station
-      <strong>{{ stationToDelete?.name }}</strong> ?
-    </p>
-    <button (click)="deleteStation()">Oui</button>
-    <button (click)="closeModal()">Non</button>
+  <div>
+    <p>Location: {{ station.city }}, {{ station.zipCode }}</p>
+    <p>Directive: {{ station.accessDirectives }}</p>
+    <p>Availability: {{ station.onFoot ? "Sur Pied" : "Muralle " }}</p>
+    <p>Price per hour: {{ station.baseHourlyRate }}€</p>
   </div>
-</div>
+</a>
+}
+
+<!--<div class="overflowX-auto">-->
+<!--  <h3 class="text-center">Vos Station</h3>-->
+<!--  <table>-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th>Nom</th>-->
+<!--        <th>Tarif</th>-->
+<!--        <th>Info Direction</th>-->
+<!--        <th>Sur pied</th>-->
+<!--        <th>Localisation</th>-->
+<!--        <th>Action</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr *ngFor="let station of chargingStations; trackBy: trackById">-->
+<!--        <td>{{ station.name }}</td>-->
+<!--        <td>{{ station.hourlyRate | currency }}</td>-->
+<!--        <td>{{ station.accessDirectives }}</td>-->
+<!--        <td>{{ station.onFoot ? "Oui" : "Non" }}</td>-->
+<!--        <td>-->
+<!--          {{ station.city }} {{ station.zipCode }}-->
+<!--          {{ station.streetName }}-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <button (click)="confirmDelete(station)">Supprimer</button>-->
+<!--          <button (click)="goToDetails(station.id)">Details</button>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+<!--  <div class="pagination-controls text-center">-->
+<!--    <button-->
+<!--      (click)="onPageChange(currentPage - 1)"-->
+<!--      [disabled]="currentPage === 0"-->
+<!--    >-->
+<!--      Previous-->
+<!--    </button>-->
+<!--    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>-->
+<!--    <button-->
+<!--      (click)="onPageChange(currentPage + 1)"-->
+<!--      [disabled]="currentPage + 1 >= totalPages"-->
+<!--    >-->
+<!--      Next-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="modal-backdrop" *ngIf="showModal">-->
+<!--  <div class="modal">-->
+<!--    <h3>Confirmation</h3>-->
+<!--    <p>-->
+<!--      Êtes-vous sûr de vouloir supprimer la station-->
+<!--      <strong>{{ stationToDelete?.name }}</strong> ?-->
+<!--    </p>-->
+<!--    <button (click)="deleteStation()">Oui</button>-->
+<!--    <button (click)="closeModal()">Non</button>-->
+<!--  </div>-->
+<!--</div>-->

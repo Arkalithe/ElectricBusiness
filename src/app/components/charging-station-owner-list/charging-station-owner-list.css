@@ -1,62 +1,62 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    font-family: Arial, sans-serif;*/
+/*}*/
 
-th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ccc;
-}
+/*th, td {*/
+/*    padding: 10px;*/
+/*    text-align: left;*/
+/*    border: 1px solid #ccc;*/
+/*}*/
 
-thead {
-    background-color: hsl(220, 100%, 60%);
-    color: white;
-}
+/*thead {*/
+/*    background-color: hsl(220, 100%, 60%);*/
+/*    color: white;*/
+/*}*/
 
-tbody tr:nth-child(odd) {
-    background-color: hsl(220, 100%, 85%);
-}
+/*tbody tr:nth-child(odd) {*/
+/*    background-color: hsl(220, 100%, 85%);*/
+/*}*/
 
-tbody tr:nth-child(even) {
-    background-color: hsl(220, 100%, 75%);
-}
+/*tbody tr:nth-child(even) {*/
+/*    background-color: hsl(220, 100%, 75%);*/
+/*}*/
 
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/*.modal-backdrop {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: rgba(0, 0, 0, 0.5);*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
 
-.modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
-}
+/*.modal {*/
+/*    background-color: white;*/
+/*    padding: 20px;*/
+/*    border-radius: 5px;*/
+/*    width: 300px;*/
+/*    text-align: center;*/
+/*}*/
 
-.modal button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+/*.modal button {*/
+/*    margin: 10px;*/
+/*    padding: 10px 20px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-.modal button:first-child {
-    background-color: #d9534f;
-    color: white;
-}
+/*.modal button:first-child {*/
+/*    background-color: #d9534f;*/
+/*    color: white;*/
+/*}*/
 
-.modal button:last-child {
-    background-color: #5bc0de;
-    color: white;
-}
+/*.modal button:last-child {*/
+/*    background-color: #5bc0de;*/
+/*    color: white;*/
+/*}*/

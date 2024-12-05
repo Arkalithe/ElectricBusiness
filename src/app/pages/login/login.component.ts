@@ -17,8 +17,8 @@ import { AuthService } from '../../services/auth/auth.service';
   imports: [FormsModule, ReactiveFormsModule],
 })
 export class LoginComponent implements OnInit {
-  @HostBinding('class.grid-auto-row') autoGrid = true;
-  @HostBinding('class.grid-s8-w1') grid = true;
+  @HostBinding('class.grid-auto-row') grid = true;
+  @HostBinding('class.even-columns') gridEven = true;
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);

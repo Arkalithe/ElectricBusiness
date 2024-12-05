@@ -5,6 +5,15 @@ import { ChargingStationDetailsComponent } from './pages/charging-station-detail
 
 export default [
   {
+    path: 'map',
+    title: 'Charging Station Map',
+    loadComponent: () =>
+      import(
+        './components/charging-station-map/charging-station-map.component'
+      ).then((module) => module.ChargingStationMapComponent),
+  },
+
+  {
     path: 'profile',
     title: 'Profile',
     canActivate: [authGuard],

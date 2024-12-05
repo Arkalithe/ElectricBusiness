@@ -1,6 +1,11 @@
-<div *ngIf="userForm" class="user-form text-center">
+<div class="text-center grid-auto-row">
   <h2>{{ isUpdateMode ? "Mise à jour du profile" : "Inscription" }}</h2>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <form
+    *ngIf="userForm"
+    [formGroup]="userForm"
+    (ngSubmit)="onSubmit()"
+    class="test"
+  >
     <div>
       <label for="firstname">Nom: </label>
       <input
@@ -32,30 +37,32 @@
       />
     </div>
 
-    <div *ngIf="!isUpdateMode">
-      <label for="password">Mot de passe: </label>
-      <input
-        type="password"
-        id="password"
-        formControlName="password"
-        name="password"
-        required
-      />
-    </div>
-    <div
-      *ngIf="
-        userForm.get('password').touched && userForm.get('password').invalid
-      "
-    >
-      <small *ngIf="userForm.get('password').errors['required']">
-        Le mot de passe est obligatoire.
-      </small>
-      <small *ngIf="userForm.get('password').errors['pattern']">
-        Le mot de passe doit contenir au moins 8 caractères, une lettre
-        majuscule, une lettre minuscule, un chiffre et un caractère spécial.
-      </small>
-    </div>
-
+    @if (!isUpdateMode) {
+      <div>
+        <label for="password">Mot de passe: </label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          name="password"
+          required
+        />
+        @if (
+          userForm.get("password").touched && userForm.get("password").invalid
+        ) {
+          @if (userForm.get("password").errors["required"]) {
+            <div class="error">Le mot de passe est obligatoire.</div>
+          }
+          @if (userForm.get("password").errors["pattern"]) {
+            <div class="error">
+              Le mot de passe doit contenir au moins 8 caractères, une lettre
+              majuscule, une lettre minuscule, un chiffre et un caractère
+              spécial.
+            </div>
+          }
+        }
+      </div>
+    }
     <div>
       <label for="phone">Telephone: </label>
       <input
@@ -76,12 +83,11 @@
         required
       />
     </div>
-    <div>
-      <button type="submit">
-        {{ isUpdateMode ? "Mettre à jour" : "S'inscrire" }}
-      </button>
-      <button type="button" (click)="onCancel()">Annuler</button>
-    </div>
+
+    <button type="submit" class="button m-1 p-1 rounded-lg">
+      {{ isUpdateMode ? "Mettre à jour" : "S'inscrire" }}
+    </button>
+    <button type="button" (click)="onCancel()">Annuler</button>
   </form>
 </div>
 <div *ngIf="!userForm">
