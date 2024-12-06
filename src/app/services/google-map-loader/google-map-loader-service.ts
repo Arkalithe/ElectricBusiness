@@ -13,9 +13,9 @@ export class GoogleMapsLoaderService {
         resolve();
         return;
       }
-      console.log('GOOGLE_MAP_API_KEY:', environment.GOOGLE_MAP_API_KEY);
+      console.log('GOOGLE_MAP_API_KEY:', environment.NG_GOOGLE_MAP_API_KEY);
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.GOOGLE_MAP_API_KEY}&libraries=places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.NG_GOOGLE_MAP_API_KEY}&libraries=places`;
       script.async = true;
       script.defer = true;
 
