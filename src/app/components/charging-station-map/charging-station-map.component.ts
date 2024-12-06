@@ -3,7 +3,6 @@ import { ChargingStation } from '../../modele/charginStation.modele';
 import { ChargingStationService } from '../../services/charging-station/charging-station.service';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { NgForOf } from '@angular/common';
-import { environment } from '../../../environments/environment.development';
 import { GoogleMapsLoaderService } from '../../services/google-map-loader/google-map-loader-service';
 import { FormsModule } from '@angular/forms';
 
