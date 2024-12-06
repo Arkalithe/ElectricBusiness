@@ -13,6 +13,7 @@ export class GoogleMapsLoaderService {
         resolve();
         return;
       }
+      console.log('_NGX_ENV_:', _NGX_ENV_);
       console.log('GOOGLE_MAP_API_KEY:', environment.NG_GOOGLE_MAP_API_KEY);
       const script = document.createElement('script');
       script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.NG_GOOGLE_MAP_API_KEY}&libraries=places`;
