@@ -6,7 +6,6 @@ import { environment } from '../../../environments/environment';
 })
 export class GoogleMapsLoaderService {
   private scriptLoaded = false;
-  private apiKey: string;
 
   load(): Promise<void> {
     return new Promise((resolve, reject) => {

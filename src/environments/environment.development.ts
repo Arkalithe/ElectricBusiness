@@ -3,5 +3,5 @@ export const environment = {
   LOCALISATION_KEYS: {
     TOKEN: 'token',
   },
-  GOOGLE_MAP_API_KEY: _NGX_ENV_.GOOGLE_MAP_API_KEY,
+  GOOGLE_MAP_API_KEY: _NGX_ENV_.NG_GOOGLE_MAP_API_KEY,
 };

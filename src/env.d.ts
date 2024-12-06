@@ -1,12 +1,11 @@
 declare interface Env {
   readonly NODE_ENV: string;
-  GOOGLE_MAP_API_KEY: string;
+  NG_GOOGLE_MAP_API_KEY: string;
 
   [key: string]: any;
 }
 
 declare interface ImportMeta {
-  GOOGLE_MAP_API_KEY: string;
   readonly env: Env;
 }
 
