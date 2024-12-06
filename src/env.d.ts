@@ -1,6 +1,6 @@
 declare interface Env {
   readonly NODE_ENV: string;
-  NG_GOOGLE_MAP_API_KEY: string;
+  readonly NG_GOOGLE_MAP_API_KEY: string;
 
   [key: string]: any;
 }
