@@ -3,4 +3,5 @@ export const environment = {
   LOCALISATION_KEYS: {
     TOKEN: 'token',
   },
+  GOOGLE_MAPS_API_KEY: import.meta.env.GOOGLE_MAP_API_KEY,
 };
